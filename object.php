@@ -5,8 +5,28 @@ require __DIR__ . "/src/functions.php";
 $title = "Objekt";
 include("incl/header.php"); ?>
 
-<article>
-    <h1>Objekt</h1>
-</article>
+<section>
+<h1>Objekt</h1>
 
-<?php include("incl/footer.php"); ?>
+<?php 
+$db = connectToDatabase($dsn);
+
+$result = getAllFrom($db, "object");?>
+
+
+<div class="object-flexbox">
+
+<?php foreach ($result as $row) {
+    ?>
+    <img src="img/150x150/<?=$row['image1']?>" alt="bild">
+    <p><?=$row['title']?></p>
+    <?php
+}
+?>
+</div>
+
+<?php include("incl/footer.php");?>
+
+</section>
+
+

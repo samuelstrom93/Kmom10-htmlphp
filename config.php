@@ -11,8 +11,5 @@ $name = preg_replace("/[^a-z\d]/i", "", __DIR__);
 // session_name($name);
 // session_start();
 
-$fileName = __DIR__ . "/db/boatclub.sqlite";
+$fileName = __DIR__ . "/db/nvm2.sqlite";
 $dsn = "sqlite:$fileName";
-
-$fileName1 = __DIR__ . "/db/cats.db";
-$dsnCat = "sqlite:$fileName1";

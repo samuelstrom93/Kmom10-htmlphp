@@ -53,6 +53,11 @@ body {
 }
 
 
+.object-flexbox {
+    display: flex;
+    flex-direction: row;
+}
+
 
 
 
