@@ -53,12 +53,32 @@ body {
 }
 
 
-.object-flexbox {
+.flex-container {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    /* align-content: space-between; */
+    align-items: top;
+    justify-content: center;
+    /* justify-content: space-around; */
+    margin: 1%;
 }
 
+.flex-container p {
+    /* text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    border: 1px solid black; */
+    /* overflow: hidden; */
+}
 
+.flex-wrap {
+    margin: 2% 5%;
+}
+
+/* .flex-wrap p {
+    overflow: hidden;
+} */
 
 
 
