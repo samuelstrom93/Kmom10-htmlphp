@@ -73,12 +73,13 @@ body {
 }
 
 .flex-wrap {
-    margin: 2% 5%;
+    padding: 1%;
+    margin: 2% 2%;
+    width: 18%;
+    text-align: center;
 }
 
-/* .flex-wrap p {
-    overflow: hidden;
-} */
+
 
 
 

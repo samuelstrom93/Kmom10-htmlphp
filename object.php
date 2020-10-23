@@ -11,15 +11,20 @@ include("incl/header.php"); ?>
     <?php
     $db = connectToDatabase($dsn);
     $result = getAllFrom($db, "object"); ?>
+    <?php
+    // var_dump($result);
+    echo $result[0]["title"];?>
 
 
     <div class="flex-container">
         <?php foreach ($result as $row) {
+        $imageText200 = mb_substr($row['image1Text'], 0, 200);
         ?>
             <div class="flex-wrap">
-                <div class="picture"><img src="img/150x150/<?= $row['image1'] ?>" alt="bild"></div>
+                <img src="img/150x150/<?= $row['image1'] ?>" alt="bild">
                 <h3><?= $row['title'] ?></h3>
-                <!-- <p><?= $row['image1Text'] ?></p> -->
+                <p><?= $imageText200 ?>...</p>
+                <a href="article.php"><button>Läs mer</button></a>
             </div>
         <?php
         }
