@@ -3,26 +3,26 @@
 $title = "Objekt";
 ?>
 <section>
-    <h1>Objekt</h1>
-
     <?php
     $db = connectToDatabase($dsn);
     $result = getAllFrom($db, "object"); ?>
-    <?php
-    // var_dump($result);
-    // echo $result[0]["title"];?>
 
+    <div class="object-header">
+        <div class="navigation-header">
+            <span id="header-title">Objekt</span>
+        </div>
 
+    </div>
     <div class="flex-container">
         <?php foreach ($result as $row) {
-        $imageText200 = mb_substr($row['image1Text'], 0, 200);
-        $name = $row['name'];
+            $imageText200 = htmlentities(mb_substr($row['image1Text'], 0, 200));
+            $name = htmlentities($row['name']);
         ?>
             <div class="flex-wrap">
-                <img src="img/150x150/<?= $row['image1'] ?>" alt="bild">
-                <h3><?=$row['title']?></h3>
+                <figure class="object-figure"><img src="img/150x150/<?= htmlentities($row['image1']) ?>" alt="<?= htmlentities($row['image1text']) ?>"></figure>
+                <h3><?= htmlentities($row['title']) ?></h3>
                 <p><?= $imageText200 ?>...</p>
-                <a href="?page=object-info&name=<?=$name?>"><button>Läs mer</button></a>
+                <a href="?page=object-info&name=<?=$name?>">Läs mer</a>
             </div>
         <?php
         }
