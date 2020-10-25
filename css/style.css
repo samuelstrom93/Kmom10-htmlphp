@@ -199,6 +199,7 @@ article {
 
 blockquote {
     font-style: italic;
+    text-align: center;
 }
 
 .author {
@@ -250,6 +251,7 @@ blockquote {
 }
 
 .maps-container img {
+    margin-top: 5%;
     width: 250px;
 }
 

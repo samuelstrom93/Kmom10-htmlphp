@@ -1,5 +1,4 @@
 <?php
-
 $title = "Objekt";
 ?>
 <section>

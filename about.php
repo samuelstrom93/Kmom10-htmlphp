@@ -1,40 +1,26 @@
-<?php
+
+<?php 
 require __DIR__ . "/src/functions.php";
 require __DIR__ . "/config.php";
 
-$title = "Om";
-include("incl/header.php");
+$pageReference = $_GET["page"] ?? "index";
+$base = basename(__FILE__, ".php");
 
-$result = getAbout($db);
+$pages = [
+    "index" => [
+        "title" => null,
+        "file" => __DIR__ . "/$base/index.php",
+    ],
+    "about-info" => [
+        "title" => null,
+        "file" => __DIR__ . "/$base/about-info.php",
+    ],
+];
 
-?>
-<article class="object-article">
-    <header class="object-header">
-        <h3 class="header-title"><?= htmlentities($title) ?></h3>
-    </header>
+$page = $pages[$pageReference] ?? null;
 
-    <h2>Om Nättraby Vägmuseum</h2>
-    <aside class="about-aside">
-        <?php foreach ($result as $row) {
-            $title = $row['title'];
-            $name = $row['name'];
+$title = " Artiklar";
 
-        ?><div class="ram"><p><a href="?page=<?= $name ?>"><?= $title ?></a></p></div>
-        <?php
-        }
-        ?>
-    </aside>
-
-<!-- Hämta resultat ifall en sida är vald -->
-
-<!-- Välj sida och en en gå tillbaka-knapp för att komma tillbaka till om -->
-<!-- Behöver skapa en undersida likt i artikles men blir i princip identiskt med den sidan -->
-
-    <?php if (isset($_GET['page'])) {
-        # code...
-    }
-
-?>
-</article>
-
-<?php include("incl/footer.php"); ?>
+require __DIR__ . "/incl/header.php";
+require __DIR__ . "/incl/multipage.php";
+require __DIR__ . "/incl/footer.php";

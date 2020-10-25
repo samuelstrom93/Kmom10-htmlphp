@@ -63,6 +63,27 @@ function getMaps($db)
     return $stmt->fetchAll(PDO::FETCH_BOTH);
 }
 
+
+function getMapsByPage($startIndex, $endIndex, $gpsArray){
+    for ($i=$startIndex; $i < $endIndex ; $i++) { 
+        ?>
+        <div class="maps-wrap">
+            <?php echo $gpsArray[$i-1]['gps'];?>
+            <a href="img/800/<?=$i < 10 ? sprintf("%02d", $i) : $i;?>_karta.jpg"><img src="img/orig/<?=$i < 10 ? sprintf("%02d", $i) : $i;?>_karta.jpg" alt="Kartbild"></a>
+        </div>
+        <?php
+    }
+}
+
+function getGPS($db) {
+    $sql = "SELECT gps FROM object";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_BOTH);
+} 
+
+
+
 function getAbout($db) {
     $sql = "SELECT * FROM article WHERE name LIKE '%om%'";
     $stmt = $db->prepare($sql);
