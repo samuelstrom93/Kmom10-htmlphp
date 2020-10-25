@@ -57,6 +57,8 @@ else
 ?>
 </article>
 
+<?php include("incl/footer.php"); ?>
+
 
 
 

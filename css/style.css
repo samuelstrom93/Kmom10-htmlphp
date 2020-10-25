@@ -255,9 +255,6 @@ blockquote {
     width: 250px;
 }
 
-
-
-
 .maps-wrap {
     flex-direction: row;
     padding: 1%;
@@ -294,6 +291,47 @@ blockquote {
      /* border-bottom: none; */
 }
 
+
+
+/******************* LOGIN ***********/
+.login-container {
+    text-align: center;
+    width: 50%;
+    height: 25vh;
+    margin: 3% auto;
+}
+
+.form-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-flex input {
+    margin: 8% 0%;
+    border: thin black solid;
+    height: 2em;
+}
+
+.form-flex label {
+    text-align: left;
+    font: bold medium Georgia;
+}
+
+#submit-btn {
+    margin: 5% auto;
+    height: 2em;
+    background-color: black;
+    color: white;
+    width: 50%;
+    cursor: pointer;
+    
+}
+
+.form-container {
+    /* border: 1px solid green; */
+    width: 35%;
+    margin: 7.5% auto;
+}
 
 
 
