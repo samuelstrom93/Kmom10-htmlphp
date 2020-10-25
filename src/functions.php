@@ -43,97 +43,42 @@ function getAllFrom($db, $table)
     $sql = "SELECT * FROM $table";
     $stmt = $db->prepare($sql);
     $stmt->execute();
-
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function printJettyResultsetToHTMLTable($res)
+
+function getAllArticles($db)
 {
-    $rows = null;
-    foreach ($res as $row) {
-        $position = htmlentities($row['position']);
-        $rows .= "<tr>";
-        $rows .= "<td><a href='?page=select&position=$position'>$position</a></td>";
-        $rows .= "<td>" . htmlentities($row['boatType']) . "</td>";
-        $rows .= "<td>" . htmlentities($row['boatEngine']) . "</td>";
-        $rows .= "<td>" . htmlentities($row['boatLength']) . "</td>";
-        $rows .= "<td>" . htmlentities($row['boatWidth']) . "</td>";
-        $rows .= "<td>" . htmlentities($row['ownerName']) . "</td>";
-        $rows .= "</tr>\n";
-    }
-
-
-    echo <<<EOD
-<table>
-<tr>
-    <th>position</th>
-    <th>boatType</th>
-    <th>boatEngine</th>
-    <th>boatLength</th>
-    <th>boatWidth</th>
-    <th>ownerName</th>
-</tr>
-$rows
-</table>
-EOD;
+    $sql = "SELECT * FROM article WHERE id = 2 OR id = 18 OR id = 19";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_BOTH);
 }
 
-function printCatsResultsetToHTMLTable($res)
+function getMaps($db)
 {
-    // Loop through the array and gather the data into table rows
-    $rows = null;
-    foreach ($res as $row) {
-        $rows .= "<tr>";
-        $rows .= "<td>" . htmlentities($row['id']) . "</td>";
-        $rows .= "<td>" . htmlentities($row['race']) . "</td>";
-        $rows .= "<td>" . htmlentities($row['name']) . "</td>";
-        $rows .= "</tr>\n";
-    }
-
-    // Print out the result as a HTML table using PHP heredoc
-    echo <<<EOD
-<table>
-<tr>
-    <th>id</th>
-    <th>race</th>
-    <th>name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-</tr>
-$rows
-</table>
-EOD;
+    $sql = "SELECT * FROM article WHERE name = 'kartor'";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_BOTH);
 }
 
 
-function readCatResultsToHTMLTable($res)
-{
-    // Loop through the array and gather the data into table rows
-    $rows = null;
-    foreach ($res as $row) {
-        $id = $row['id'];
-        $rows .= "<tr>";
-        $rows .= "<td>" . htmlentities($row['id']) . "</td>";
-        $rows .= "<td>" . htmlentities($row['race']) . "</td>";
-        $rows .= "<td>" . htmlentities($row['name']) . "</td>";
-        $rows .= "<td>" . "<a href=?page=update&id=$id>Uppdatera</a> " . "</td>";
-        $rows .= "<td>" . "<a href=?page=delete&id=$id>Ta Bort</a> " . "</td>";
-
-        $rows .= "</tr>\n";
-    }
-
-    // Print out the result as a HTML table using PHP heredoc
-    echo <<<EOD
-<table>
-<tr>
-    <th>id</th>
-    <th>race</th>
-    <th>name</th>
-    <th>Uppdatera</th>
-    <th>Radera</th>
-</tr>
-$rows
-</table>
-EOD;
+function namePreviousPage($db, $table, $id) {
+    --$id;
+    $sql = "SELECT name FROM $table WHERE id = :id";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([":id" => $id]);
+    return $stmt->fetch(PDO::FETCH_COLUMN);
 }
+
+
+
+function nameNextPage($db, $table, $id) {
+    ++$id;
+    $sql = "SELECT name FROM $table WHERE id = :id";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([":id" => $id]);
+    return $stmt->fetch(PDO::FETCH_COLUMN);
+}
+

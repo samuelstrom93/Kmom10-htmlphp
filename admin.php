@@ -1,6 +1,6 @@
 <?php
-require __DIR__ . "/config.php";
 require __DIR__ . "/src/functions.php";
+require __DIR__ . "/config.php";
 
 $title = "Admin";
 include("incl/header.php"); ?>

@@ -1,5 +1,4 @@
 <?php
-// $db = connectToDatabase($dsn);
 $id = null;
 $name = null;
 $title = null;
@@ -16,17 +15,13 @@ $image2Alt = null;
 $image2Text = null;
 
 
-// ID vill komma ifrån returnerade kolumner och index. inte radens id nummer. 
-// Tar någon bort en post i databasen kommer således programmet att krascha
-// En knapp för bakåt och en för framåt
-
 
 $name = isset($_GET['name'])
     ? $_GET['name'] : null;
 
 
 if (isset($name)) {
-    $sql = "SELECT * FROM object WHERE name = :name";
+    $sql = "SELECT * FROM article WHERE name = :name";
     $stmt = $db->prepare($sql);
     $stmt->execute([":name" => $name]);
 
@@ -37,30 +32,24 @@ if (isset($name)) {
         die("Inget resultat.");
     }
 
-
-
     list($id, $name, $title, $data, $author, $gps, $mapImage, $image1, $image1Alt, $image1Text, $text, $image2, $image2Alt, $image2Text) = $res[0];
 }
-$namePreviousPage = namePreviousPage($db, "object", $id);
-$nameNextPage = nameNextPage($db, "object", $id);
-
 
 ?>
 <article class="object-article">
     <header class="object-header">
         <h3 class="header-title"><?= htmlentities($title) ?></h3>
-        <?php if ($namePreviousPage) {
-        ?><a href="?page=object-info&name=<?= $namePreviousPage ?>" class="previous-btn">Föregående objekt</a><?php
-                                                                                                            } ?>
-        <?php if ($nameNextPage) {
-        ?><a href="?page=object-info&name=<?= $nameNextPage ?>" class="next-btn">Nästa objekt</a><?php
-                                                                                                }
-                                                                                                    ?>
+        <a class="previous-btn" href="article.php">Gå tillbaka</a>
     </header>
-    <figure>
-        <img src="img/500/<?= htmlentities($image1) ?>" alt="<?htmlentities($image1Alt)?>">
+    <?php if (isset($image1)) {
+        ?>
+        <figure>
+        <img src="img/500/<?= htmlentities($image1)?>" alt="<?htmlentities($image1Alt)?>">
         <figcaption><?= htmlentities($image1Text) ?></figcaption>
     </figure>
+    <?php
+    }
+    ?>
     <div class="text-container">
         <p><?= html_entity_decode($data) ?></p>
 
@@ -78,3 +67,7 @@ $nameNextPage = nameNextPage($db, "object", $id);
         ?>
         <p class="author">Författare: <?= htmlentities($author) ?></p>
 </article>
+
+
+
+

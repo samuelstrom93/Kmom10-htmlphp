@@ -2,6 +2,10 @@ body {
     background: #eee;
 }
 
+article {
+    margin: 1% 0%;
+}
+
 /* HEADER */
 .site-header {
     background: linear-gradient(to bottom right, #18864a, rgb(113, 194, 144));
@@ -73,8 +77,6 @@ body {
     text-decoration: underline;
 }
 
-
-
 .flex-wrap {
     padding: 1%;
     margin: 1% 2%;
@@ -91,50 +93,78 @@ body {
     padding: 5px;
 }
 
-.navigation-header {
-    width: 70%;
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+
+.previous-btn {
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    float: left;
+    margin-left: 23.5%;
 }
 
-#header-title {
-    font-size: 30px;
+.next-btn {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    float: right;
+    display: inline;
+    margin-right: 23.5%;
     font-weight: bold;
 }
 
 
-.navigation-header a {
-    text-decoration: none;
+
+.previous-btn-gallery {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
-    border: 1px solid black;
-    background-color: black;
-    border-top: 1px solid #9c9;
-    border-bottom: 1px solid #9c9;
-    height: 2em;
-    line-height: 2em;
+    float: left;
+    font-weight: bold;
+    margin-left: 3%;
+}
+
+.next-btn-gallery {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    display: inline;
+    float: right;
+    font-weight: bold;
+    margin-right: 80%;
+}
+
+.gallery-img {
+    width: 15%;
+    margin: 0.5em;
+}
+
+
+
+
+
+
+/**************************** MAIN/OBJECT ******************/
+
+.object-header {
+    background-color: rgb(113, 187, 113);
+    height: 8vh;
+}
+
+.object-header a {
+    text-decoration: none;
+    height: 2vh;
+    line-height: 2vh;
     padding: 5px;
 }
 
-.navigation-header a:hover {
+.object-header a:hover {
     text-decoration: underline;
 }
 
-
-
-
-
-/**************************** MAIN/ARTICLE ******************/
-.object-article {
+.header-title {
+    font-size: 30px;
+    font-weight: bold;
     text-align: center;
-}
-
-.object-header {
-    width: 100%;
-    background-color: rgb(113, 187, 113);
-    height: 5vh;
-    line-height: 5vh;
+    margin: 0%;
+    padding-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .object-header h2 {
@@ -155,6 +185,7 @@ body {
     color: #fff;
     font: italic smaller sans-serif;
     padding: 3px;
+    text-align: center;
 }
 
 .text-container {
@@ -172,9 +203,72 @@ blockquote {
 }
 
 .author {
-    font: italic large Georgia;
+    font: italic large Tahoma;
     text-align: center;
 }
+
+
+/****************** ARTICLE ******************/
+.flex-container-article {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: top;
+    justify-content: center;
+}
+
+.flex-container-article a {
+    text-decoration: none;
+    color: white;
+    border: 1px solid black;
+    background-color: black;
+    border-top: 1px solid #9c9;
+    border-bottom: 1px solid #9c9;
+    padding: 4px;
+}
+
+.flex-container-article a:hover {
+    text-decoration: underline;
+}
+
+.flex-wrap-article {
+    padding: 1%;
+    margin: 1% 2%;
+    width: 25%;
+    text-align: center;
+    border: solid 1px black;
+}
+
+
+/************ GALLERY **********/
+
+.maps-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    /* align-items: top; */
+    /* justify-content: center; */
+}
+
+.maps-container img {
+    width: 250px;
+}
+
+
+
+
+.maps-wrap {
+    flex-direction: row;
+    padding: 1%;
+    margin: 1% 2%;
+    width: 18%;
+    text-align: center;
+}
+
+
+
+
+
 
 
 

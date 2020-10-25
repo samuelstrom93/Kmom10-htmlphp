@@ -1,6 +1,6 @@
 <?php 
-require __DIR__ . "/config.php";
 require __DIR__ . "/src/functions.php";
+require __DIR__ . "/config.php";
 
 $pageReference = $_GET["page"] ?? "index";
 $base = basename(__FILE__, ".php");
@@ -18,8 +18,8 @@ $pages = [
 
 $page = $pages[$pageReference] ?? null;
 
-$title = $page["title"] ?? "404";
-$title .= " | Objekt";
+// $title = $page["title"] ?? "404";
+$title = " Objekt";
 
 require __DIR__ . "/incl/header.php";
 require __DIR__ . "/incl/multipage.php";

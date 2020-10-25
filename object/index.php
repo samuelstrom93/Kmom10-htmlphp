@@ -7,10 +7,11 @@ $title = "Objekt";
     $db = connectToDatabase($dsn);
     $result = getAllFrom($db, "object"); ?>
 
+
     <div class="object-header">
-        <div class="navigation-header">
-            <span id="header-title">Objekt</span>
+            <h3 class="header-title">Objekt</h3>
         </div>
+
 
     </div>
     <div class="flex-container">
@@ -22,12 +23,11 @@ $title = "Objekt";
                 <figure class="object-figure"><img src="img/150x150/<?= htmlentities($row['image1']) ?>" alt="<?= htmlentities($row['image1text']) ?>"></figure>
                 <h3><?= htmlentities($row['title']) ?></h3>
                 <p><?= $imageText200 ?>...</p>
-                <a href="?page=object-info&name=<?=$name?>">Läs mer</a>
+                <a href="?page=object-info&name=<?= $name ?>">Läs mer</a>
             </div>
         <?php
         }
         ?>
     </div>
-
 
 </section>

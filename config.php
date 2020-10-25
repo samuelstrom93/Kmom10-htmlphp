@@ -13,3 +13,5 @@ $name = preg_replace("/[^a-z\d]/i", "", __DIR__);
 
 $fileName = __DIR__ . "/db/nvm2.sqlite";
 $dsn = "sqlite:$fileName";
+
+$db = connectToDatabase($dsn);

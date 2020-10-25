@@ -1,12 +1,26 @@
-<?php
-require __DIR__ . "/config.php";
+
+<?php 
 require __DIR__ . "/src/functions.php";
+require __DIR__ . "/config.php";
 
-$title = "Artiklar";
-include("incl/header.php"); ?>
+$pageReference = $_GET["page"] ?? "index";
+$base = basename(__FILE__, ".php");
 
-<article>
-    <h1>Artiklar</h1>
-</article>
+$pages = [
+    "index" => [
+        "title" => null,
+        "file" => __DIR__ . "/$base/index.php",
+    ],
+    "article-info" => [
+        "title" => null,
+        "file" => __DIR__ . "/$base/article-info.php",
+    ],
+];
 
-<?php include("incl/footer.php"); ?>
+$page = $pages[$pageReference] ?? null;
+
+$title = " Artiklar";
+
+require __DIR__ . "/incl/header.php";
+require __DIR__ . "/incl/multipage.php";
+require __DIR__ . "/incl/footer.php";
