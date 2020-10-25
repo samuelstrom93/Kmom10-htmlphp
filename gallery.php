@@ -11,7 +11,8 @@ $title = "Galleri";
 include("incl/header.php");
 
 ?>
-<header class="object-header">
+<article class="object-article">
+    <header class="object-header">
         <h3 class="header-title"><?= htmlentities($title) ?></h3><?php
 
         
@@ -19,15 +20,15 @@ if (isset($_GET['page'])) {
         $pageNmbr = $_GET['page'];    
 ?>
         <?php if ($pageNmbr != 1) {
-            ?><a href="?page=<?=$pageNmbr-1?>" class="previous-btn-gallery">Föregående sida</a><?php
+            ?><a href="?page=<?=$pageNmbr-1?>" class="previous-btn">Föregående sida</a><?php
         }
         if ($pageNmbr != 4) {
-            ?><a href="?page=<?=$pageNmbr+1?>" class="next-btn-gallery">Nästa sida</a><?php
+            ?><a href="?page=<?=$pageNmbr+1?>" class="next-btn">Nästa sida</a><?php
         }
 }
 
 if (!isset($_GET['page'])) {
-    ?><a href="gallery.php?page=2" class="next-btn-gallery">Nästa sida</a><?php
+    ?><a href="gallery.php?page=2" class="next-btn">Nästa sida</a><?php
 }
 ?>
 </header>
@@ -53,7 +54,8 @@ else
         ?><img src="<?=$pictures[$i]?>" class="gallery-img" alt=""><?php
     }
 }
-
+?>
+</article>
 
 
 

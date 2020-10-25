@@ -124,7 +124,6 @@ article {
 .next-btn-gallery {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
-    display: inline;
     float: right;
     font-weight: bold;
     margin-right: 80%;
@@ -267,6 +266,31 @@ blockquote {
 
 
 
+
+/********************* ABOUT **************/
+
+
+
+.about-aside {
+    width: 15%;
+    margin: 1%;
+}
+
+.about-aside a {
+    /* text-decoration: none; */
+    color: black;
+    font: bold medium Georgia;
+}
+
+.about-aside a:hover {
+    background-color: grey;
+}
+
+.ram {
+    border: 1px solid black;
+    padding: 2% 8%;
+     /* border-bottom: none; */
+}
 
 
 

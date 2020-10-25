@@ -60,8 +60,16 @@ function getMaps($db)
     $sql = "SELECT * FROM article WHERE name = 'kartor'";
     $stmt = $db->prepare($sql);
     $stmt->execute();
-    return $stmt->fetch(PDO::FETCH_BOTH);
+    return $stmt->fetchAll(PDO::FETCH_BOTH);
 }
+
+function getAbout($db) {
+    $sql = "SELECT * FROM article WHERE name LIKE '%om%'";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 
 
 function namePreviousPage($db, $table, $id) {
