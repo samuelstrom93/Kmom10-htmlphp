@@ -36,14 +36,11 @@ if (isset($name)) {
 }
 
 ?>
-<article class="object-article">
-    <header class="object-header">
-        <h3 class="header-title"><?= htmlentities($title) ?></h3>
+
         <a class="previous-btn" href="about.php">Gå tillbaka</a>
-    </header>
     <?php if (isset($image1)) {
         ?>
-        <figure>
+        <figure class="object-img">
         <img src="img/500/<?= htmlentities($image1)?>" alt="<?htmlentities($image1Alt)?>">
         <figcaption><?= htmlentities($image1Text) ?></figcaption>
     </figure>
@@ -56,7 +53,7 @@ if (isset($name)) {
         <?php
         if (isset($image2)) {
         ?>
-            <figure>
+            <figure class="object-img">
                 <img src="img/500/<?= htmlentities($image2) ?>" alt="<?htmlentities($image2Alt)?>">
                 <figcaption><?= htmlentities($image2Text) ?></figcaption>
             </figure>

@@ -1,22 +1,32 @@
 <?php $title = "Admin"; ?>
 
-<article class="object-article">
-    <header class="object-header">
-        <h3 class="header-title"><?= htmlentities($title) ?></h3>
-    </header>
-
-    <div class="login-container">
-        <h2>Logga in</h2>
-        <div class="form-container">
-            <form action="" class="form-flex">
-                <label for="username">Användarnamn:</label>
-                <input type="text" name="username" placeholder="admin eller doe" required>
-                <label for="password">Lösenord:</label>
-                <input type="password" name="password" required>
-                <input type="submit" value="Logga in" id="submit-btn">
-            </form>
-        </div>
+<?php if (isset($_SESSION['user'])) {
+    ?><h2 id="center">Här kan du ändringar i databasen.</h2>
+    <div class="flex-div">
+        <a href="?page=create" class="database-btn">Lägg till</a>
+        <a href="?page=edit" class="database-btn">Editera</a>
+        <a href="?page=init" class="database-btn">Återställ</a>
     </div>
+    <form method="post" action="?page=logout-process">
+    <input type="submit" name="logout" value="Logga ut" id="logout-btn">
+    </form><?php
+}
+else
+{
+    ?><div class="login-container">
+    <h2>Logga in</h2>
+    <div class="form-container">
+        <form method="post" action="?page=login-process" class="form-flex">
+            <label for="user">Användarnamn:</label>
+            <input type="text" name="user" placeholder="admin eller doe" required>
+            <label for="password">Lösenord:</label>
+            <input type="password" name="password" required>
+            <input type="submit" name="login" value="Logga in" id="submit-btn">
+        </form>
 
-
-</article>
+    </div>
+</div>
+<?php
+}
+?>
+    

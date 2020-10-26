@@ -10,12 +10,6 @@ require __DIR__ . "/config.php";
 $title = "Galleri";
 include("incl/header.php");
 
-?>
-<article class="object-article">
-    <header class="object-header">
-        <h3 class="header-title"><?= htmlentities($title) ?></h3><?php
-
-        
 if (isset($_GET['page'])) {
         $pageNmbr = $_GET['page'];    
 ?>
@@ -30,17 +24,13 @@ if (isset($_GET['page'])) {
 if (!isset($_GET['page'])) {
     ?><a href="gallery.php?page=2" class="next-btn">Nästa sida</a><?php
 }
-?>
-</header>
-<?php
-
 
 // Kan hämta datan via SQL-anrop istället om jag vill
 $pictures = glob('img/150x150/*.jpg', GLOB_BRACE);
-
-
-
-if (isset($_GET['page'])) {
+?>
+<div class="gallery-container">
+    
+<?php if (isset($_GET['page'])) {
     $endIndex = 10 * $_GET['page'];
     $index = $endIndex - 10;
 
@@ -55,8 +45,8 @@ else
     }
 }
 ?>
+</div>
 </article>
-
 <?php include("incl/footer.php"); ?>
 
 

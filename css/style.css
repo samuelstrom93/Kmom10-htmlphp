@@ -2,13 +2,18 @@ body {
     background: #eee;
 }
 
+figure {
+    clear: both;
+}
+
 article {
-    margin: 1% 0%;
+    margin: 0.5% 0%;
+    /* min-height: 62vh; */
 }
 
 /* HEADER */
 .site-header {
-    background: linear-gradient(to bottom right, #18864a, rgb(113, 194, 144));
+    background: linear-gradient(to bottom right, #14693a, rgb(96, 182, 129));
     height: 7.5vh;
     display: flex;
     align-items: center;
@@ -58,9 +63,7 @@ article {
 .flex-container {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    align-items: top;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .flex-container a {
@@ -79,7 +82,7 @@ article {
 
 .flex-wrap {
     padding: 1%;
-    margin: 1% 2%;
+    margin: 2% 0%;
     width: 18%;
     text-align: center;
 }
@@ -88,27 +91,30 @@ article {
 /******************* GEMENSAMT MELLAN SIDOR *************/
 /* NAVIGATON */
 
-.object-figure {
-    border: thin #c0c0c0 solid;
-    padding: 5px;
-}
-
-
 .previous-btn {
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
+    color: black;
     float: left;
-    margin-left: 23.5%;
+    text-decoration: none;
+    margin-left: 2vh;
+}
+
+.previous-btn:hover {
+    text-decoration: underline;
 }
 
 .next-btn {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
+    color: black;
     float: right;
-    display: inline;
-    margin-right: 23.5%;
     font-weight: bold;
+    text-decoration: none;
+    margin-right: 2vh;
+}
+
+.next-btn:hover {
+    text-decoration: underline;
 }
 
 
@@ -132,6 +138,15 @@ article {
 .gallery-img {
     width: 15%;
     margin: 0.5em;
+    display: line;
+    /* margin: 5% 1%; */
+}
+
+.gallery-container {
+    display:flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 3%;
 }
 
 
@@ -142,8 +157,10 @@ article {
 /**************************** MAIN/OBJECT ******************/
 
 .object-header {
-    background-color: rgb(113, 187, 113);
-    height: 8vh;
+    /* background-color: rgb(120, 204, 120); */
+    background: linear-gradient(to top, #63be8c, rgb(26, 196, 91));
+    height: 6vh;
+    margin-bottom: 1%;
 }
 
 .object-header a {
@@ -161,8 +178,8 @@ article {
     font-size: 30px;
     font-weight: bold;
     text-align: center;
-    margin: 0%;
-    padding-top: 20px;
+    margin: auto;
+    line-height: 6vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -171,7 +188,7 @@ article {
     font-size: 30px;
 }
 
-.object-article figure {
+.object-img {
     display: flex;
     flex-flow: column;
     padding: 5px;
@@ -179,7 +196,7 @@ article {
     margin: 1% auto;
 }
 
-.object-article figcaption {
+.object-img figcaption {
     background-color: #222;
     color: #fff;
     font: italic smaller sans-serif;
@@ -203,7 +220,7 @@ blockquote {
 }
 
 .author {
-    font: italic large Tahoma;
+    font: italic medium Georgia;
     text-align: center;
 }
 
@@ -239,6 +256,11 @@ blockquote {
     border: solid 1px black;
 }
 
+.flex-wrap img {
+    border: thin grey solid;
+    padding: 2%;
+}
+
 
 /************ GALLERY **********/
 
@@ -246,8 +268,7 @@ blockquote {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    /* align-items: top; */
-    /* justify-content: center; */
+    margin-top: 3%;
 }
 
 .maps-container img {
@@ -258,7 +279,7 @@ blockquote {
 .maps-wrap {
     flex-direction: row;
     padding: 1%;
-    margin: 1% 2%;
+    /* margin: 1% 2%; */
     width: 18%;
     text-align: center;
 }
@@ -297,8 +318,8 @@ blockquote {
 .login-container {
     text-align: center;
     width: 50%;
-    height: 25vh;
-    margin: 3% auto;
+    /* height: 25vh; */
+    margin: 4% auto;
 }
 
 .form-flex {
@@ -324,22 +345,67 @@ blockquote {
     color: white;
     width: 50%;
     cursor: pointer;
-    
+}
+
+#logout-btn {
+    display: block;
+    margin: 5% auto;
+    height: 2em;
+    background-color: black;
+    color: white;
+    width: 120px;
+    cursor: pointer;
 }
 
 .form-container {
-    /* border: 1px solid green; */
     width: 35%;
-    margin: 7.5% auto;
+    margin: 2.5% auto;
 }
+
+#legend {
+    font: bold larger Georgia;
+}
+
+
+
+
+.flex-div {
+    display: flex;
+    /* justify-content: space-around; */
+    width: 50%;
+    margin: auto;
+}
+
+.database-btn {
+    text-decoration: none;
+    color: black;
+    border: thin solid black;
+    padding: 5px 10px;
+    font: bold medium Georgia;
+    margin: auto;
+    text-align: center;
+}
+
+.database-btn:hover {
+    text-decoration: underline;
+}
+
+#center {
+    text-align: center;
+    margin: 5% 5%;
+}
+
+
+/********************* ADMIN *************/
 
 
 
 
 /***********************************' FOOTER ******************/
 .footern {
+    margin-top: 3%;
     padding: 1%;
-    background: linear-gradient(to bottom right, #18864a, rgb(113, 194, 144));
+    background: linear-gradient(to bottom right, #14693a, rgb(96, 182, 129));
     text-align: center;
 }
 
@@ -348,6 +414,11 @@ blockquote {
     font-weight: bold;
 }
 
+.flashmessage {
+    padding: 1.5em;
+    text-align: center;
+    font: bold medium Georgia;
+}
 
 
 

@@ -5,12 +5,6 @@ $title = "Artiklar";
     <?php
     $result = getAllArticles($db);?>
 
-
-    <div class="object-header">
-            <h3 class="header-title">Artiklar</h3>
-        </div>
-
-
     </div>
     <div class="flex-container-article">
         <?php foreach ($result as $row) {

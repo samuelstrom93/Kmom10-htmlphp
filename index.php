@@ -24,13 +24,9 @@ list($id, $name, $title, $data, $author, $gps, $mapImage, $image1, $image1Alt, $
 
 
 ?>
-<article class="object-article">
-    <header class="object-header">
-        <h3 class="header-title"><?= htmlentities($title) ?></h3>
-    </header>
     <?php if (isset($image1)) {
     ?>
-        <figure>
+        <figure class="object-img">
             <img src="img/500/<?= htmlentities($image1) ?>" alt="<?htmlentities($image1Alt)?>">
             <figcaption><?= htmlentities($image1Text) ?></figcaption>
         </figure>
@@ -43,7 +39,7 @@ list($id, $name, $title, $data, $author, $gps, $mapImage, $image1, $image1Alt, $
         <?php
         if (isset($image2)) {
         ?>
-            <figure>
+            <figure class="object-img">
                 <img src="img/500/<?= htmlentities($image2) ?>" alt="<?htmlentities($image2Alt)?>">
                 <figcaption><?= htmlentities($image2Text) ?></figcaption>
             </figure>

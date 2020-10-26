@@ -24,4 +24,10 @@
             <a class="<?= $uriFile == "admin.php" ? "selected" : null ?>" href="admin.php">Admin</a>
             <a class="<?= $uriFile == "admin.php" ? "selected" : null ?>" href="admin.php">(Söksymbol)</a>
         </nav>
+
+        
     </header>
+    <article class="object-article">
+    <header class="object-header">
+        <h3 class="header-title"><?= htmlentities($title) ?></h3>
+        </header>

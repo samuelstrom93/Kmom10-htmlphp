@@ -14,6 +14,30 @@ $pages = [
         "title" => null,
         "file" => __DIR__ . "/$base/edit.php",
     ],
+    "login" => [
+        "title" => null,
+        "file" => __DIR__ . "/$base/login.php",
+    ],
+    "login-process" => [
+        "title" => null,
+        "file" => __DIR__ . "/$base/login-process.php",
+    ],
+    "logout-process" => [
+        "title" => null,
+        "file" => __DIR__ . "/$base/logout-process.php",
+    ],
+    "create" => [
+        "title" => null,
+        "file" => __DIR__ . "/$base/create.php",
+    ],
+    "create-process" => [
+        "title" => null,
+        "file" => __DIR__ . "/$base/create-process.php",
+    ],
+    "init" => [
+        "title" => null,
+        "file" => __DIR__ . "/$base/init.php",
+    ],
 ];
 
 $page = $pages[$pageReference] ?? null;

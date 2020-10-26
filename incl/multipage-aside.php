@@ -1,5 +1,6 @@
 <aside>
     <nav>
+    <?php require __DIR__ . "/flashmessage.php"; ?>
         <ul>
         <?php foreach ($pages as $key => $value) : ?>
             <?php if (isset($value["title"])) :

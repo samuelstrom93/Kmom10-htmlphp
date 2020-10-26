@@ -8,10 +8,6 @@ $title = "Kartor";
 include("incl/header.php");
 
 ?>
-<article class="object-article">
-    <header class="object-header">
-        <h3 class="header-title"><?= htmlentities($title) ?></h3>
-
         <?php 
         if (isset($_GET['page'])) {
 
@@ -29,7 +25,6 @@ include("incl/header.php");
                 <?php
         }
 ?>
-</header>
 
 
 <?php $gpsArray = getGPS($db);?>

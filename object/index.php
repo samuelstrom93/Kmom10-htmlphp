@@ -1,4 +1,5 @@
 <?php
+
 $title = "Objekt";
 ?>
 <section>
@@ -6,13 +7,6 @@ $title = "Objekt";
     $db = connectToDatabase($dsn);
     $result = getAllFrom($db, "object"); ?>
 
-
-    <div class="object-header">
-            <h3 class="header-title">Objekt</h3>
-        </div>
-
-
-    </div>
     <div class="flex-container">
         <?php foreach ($result as $row) {
             $imageText200 = htmlentities(mb_substr($row['image1Text'], 0, 200));

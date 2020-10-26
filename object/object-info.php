@@ -31,12 +31,9 @@ if (isset($name)) {
 
     $res = $stmt->fetchAll(PDO::FETCH_BOTH);
 
-
     if (empty($res)) {
         die("Inget resultat.");
     }
-
-
 
     list($id, $name, $title, $data, $author, $gps, $mapImage, $image1, $image1Alt, $image1Text, $text, $image2, $image2Alt, $image2Text) = $res[0];
 }
@@ -45,19 +42,15 @@ $nameNextPage = nameNextPage($db, "object", $id);
 
 
 ?>
-<article class="object-article">
-    <header class="object-header">
-        <h3 class="header-title"><?= htmlentities($title) ?></h3>
         <?php if ($namePreviousPage) {
         ?><a href="?page=object-info&name=<?= $namePreviousPage ?>" class="previous-btn">Föregående objekt</a><?php
-                                                                                                            } ?>
+                } ?>
         <?php if ($nameNextPage) {
-        ?><a href="?page=object-info&name=<?= $nameNextPage ?>" class="next-btn">Nästa objekt</a><?php
-                                                                                                }
-                                                                                                    ?>
-    </header>
-    <figure>
-        <img src="img/500/<?= htmlentities($image1) ?>" alt="<?htmlentities($image1Alt)?>">
+            ?><a href="?page=object-info&name=<?= $nameNextPage ?>" class="next-btn">Nästa objekt</a><?php
+                }
+                ?>
+    <figure class="object-img">
+        <img src="img/500/<?= htmlentities($image1) ?>"  alt="<?htmlentities($image1Alt)?>">
         <figcaption><?= htmlentities($image1Text) ?></figcaption>
     </figure>
     <div class="text-container">
@@ -70,10 +63,8 @@ $nameNextPage = nameNextPage($db, "object", $id);
                 <img src="img/500/<?= htmlentities($image2) ?>" alt="<?htmlentities($image2Alt)?>">
                 <figcaption><?= htmlentities($image2Text) ?></figcaption>
             </figure>
-
         <?php
         }
-
         ?>
         <p class="author">Författare: <?= htmlentities($author) ?></p>
 </article>
