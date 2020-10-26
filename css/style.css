@@ -96,9 +96,11 @@ article {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: black;
     float: left;
-    text-decoration: none;
+    /* text-decoration: none; */
     margin-left: 2vh;
 }
+
+
 
 .previous-btn:hover {
     text-decoration: underline;
@@ -109,7 +111,7 @@ article {
     color: black;
     float: right;
     font-weight: bold;
-    text-decoration: none;
+    /* text-decoration: none; */
     margin-right: 2vh;
 }
 
@@ -117,6 +119,15 @@ article {
     text-decoration: underline;
 }
 
+.center-btn {
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    /* text-decoration: none; */
+    text-align: center;
+    display: block;
+    margin: 5% auto;
+}
 
 
 .previous-btn-gallery {
@@ -338,12 +349,16 @@ blockquote {
     font: bold medium Georgia;
 }
 
+form label {
+    font: italic medium Georgia;
+}
+
 #submit-btn {
     margin: 5% auto;
     height: 2em;
     background-color: black;
     color: white;
-    width: 50%;
+    width: 15vh;
     cursor: pointer;
 }
 
@@ -397,8 +412,22 @@ blockquote {
 
 
 /********************* ADMIN *************/
+.edit-container {
+    margin: 2% auto;
+    text-align: center;
+}
 
+.edit-container input {
+    width: 31vh;
+}
 
+.edit-container p {
+    font: bold medium Georgia;
+}
+
+form p {
+    margin: 4% auto; 
+}
 
 
 /***********************************' FOOTER ******************/

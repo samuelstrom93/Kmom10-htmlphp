@@ -111,18 +111,40 @@ function nameNextPage($db, $table, $id) {
     return $stmt->fetch(PDO::FETCH_COLUMN);
 }
 
+function getRowByName($db, $table, $name) {
+    $sql = "SELECT * FROM $table WHERE name = :name";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([":name" => $name]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getRowID($db, $table, $id) {
+    ++$id;
+    $sql = "SELECT name FROM $table WHERE id = :id";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([":id" => $id]);
+    return $stmt->fetch(PDO::FETCH_COLUMN);
+}
+
+function getRowByTitle($db, $table, $title) {
+    $sql = "SELECT * FROM $table WHERE title = :title";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([":title" => $title]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 
 function printFormToInsertToDatabase($typeToAdd) {
     ?>
     <div class="login-container">
-        <form method="post" action="?page=create-process">
+        <form method="post" action="?page=create-process&edit=<?=$typeToAdd?>">
             <fieldset>
                 <legend id="legend"><?=$typeToAdd?></legend>
                 <p><label>id<br><input type="number" name="id" required></label></p>
                 <p><label>name<br><input type="text" name="name" required></label></p>
                 <p><label>title<br><input type="text" name="title" required></label></p>
                 <p><label>data<br><input type="text" name="data" required></label></p>
-                <p><label>author<br><input type="number" name="author" required></label></p>
+                <p><label>author<br><input type="text" name="author" required></label></p>
                 <p><label>gps<br><input type="text" name="gps"></label></p>
                 <p><label>mapImage<br><input type="text" name="mapImage"></label></p>
                 <p><label>image1<br><input type="text" name="image1"></label></p>
@@ -131,7 +153,7 @@ function printFormToInsertToDatabase($typeToAdd) {
                 <p><label>TEXT<br><input type="text" name="TEXT"></label></p>
 
                 <?php echo isset($_GET['secondPicture']) ?
-                    "<a href=" . "?page=create&edit=$typeToAdd" . ">Lägg inte till en andra bild</a>"
+                    "<a href='?page=create&edit=$typeToAdd' class='center-btn'>Lägg inte till en andra bild</a>"
                     .
                     <<<EOD
                     <p><label>image2<br><input type="text" name="image2"></label></p>
@@ -139,9 +161,9 @@ function printFormToInsertToDatabase($typeToAdd) {
                     <p><label>image2Text<br><input type="text" name="image2Text"></label></p> 
                     EOD
                     :
-                    "<a href=" . "?page=create&edit=$typeToAdd&secondPicture=true" . ">Utöka formuläret för en till bild</a>";
+                    "<a href='?page=create&edit=$typeToAdd&secondPicture=true' class='center-btn' >Utöka formuläret för en till bild</a>";
                 ?>
-                <p><input type="submit" name="add" value="Lägg till" class="submit-btn"></p>
+                <p><input type="submit" name="add" value="Lägg till" id="submit-btn"></p>
             </fieldset>
         </form>
     </div>

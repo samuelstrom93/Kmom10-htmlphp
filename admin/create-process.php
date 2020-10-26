@@ -1,10 +1,4 @@
 <?php
-// Include common settings
-require __DIR__ . "/config.php";
-
-// // Create a DSN for the database using its filename
-// $fileName = __DIR__ . "/db/boatclub.sqlite";
-// $dsn = "sqlite:$fileName";
 
 if (isset($_POST['add'])) {
     // Store posted form in parameter array
@@ -29,17 +23,22 @@ if (isset($_POST['add'])) {
         echo "Failed to connect to the database using DSN:<br>$dsn<br>";
         throw $e;
     }
+    $typeToAdd = $_GET['edit'] ?? null;
+    var_dump($typeToAdd);
 
-
-
-    // Prepare SQL statement to INSERT new rows into table
-    $sql = "INSERT INTO jetty VALUES(?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO $typeToAdd VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $db->prepare($sql);
+
+
+    // $sql = "INSERT INTO article VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    // $stmt = $db->prepare($sql);
 
 
 
     // Execute the SQL to INSERT within a try-catch to catch any errors.
     try {
+        // $stmt->bindValue(':typeToAdd', $typeToAdd, PDO::PARAM_STR);
+        $stmt->bindParam(":typeToAdd", $typeToAdd);
         $stmt->execute($params);
     } catch (PDOException $e) {
         echo "<p>Failed to insert a new row, dumping details for debug.</p>";
@@ -50,7 +49,10 @@ if (isset($_POST['add'])) {
     }
 
     // Print out the successful results
-    echo "<p>Inserted the row:<br></p><pre>" . print_r($params, true) . "</pre>";
-    echo "<p><a href='insert.php'>Insert another row</a>.</p>";
-    exit();
+    // echo "<p>Inserted the row:<br></p><pre>" . print_r($params, true) . "</pre>";
+    // echo "<p><a href='insert.php'>Insert another row</a>.</p>";
+    // exit();
+
+    $_SESSION["flashmessage"] = "Du har skapat en ny $typeToAdd med namnet $name och titeln $title.";
+    header("Location: ?page=create");
 }

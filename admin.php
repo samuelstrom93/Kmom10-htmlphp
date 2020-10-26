@@ -14,6 +14,14 @@ $pages = [
         "title" => null,
         "file" => __DIR__ . "/$base/edit.php",
     ],
+    "edit-process" => [
+        "title" => null,
+        "file" => __DIR__ . "/$base/edit-process.php",
+    ],
+    "delete-process" => [
+        "title" => null,
+        "file" => __DIR__ . "/$base/delete-process.php",
+    ],
     "login" => [
         "title" => null,
         "file" => __DIR__ . "/$base/login.php",
