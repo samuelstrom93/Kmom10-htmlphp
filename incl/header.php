@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=2.0;">
     <title><?= $title ?></title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicon.ico"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
@@ -22,12 +23,10 @@
             <a class="<?= $uriFile == "gallery.php" ? "selected" : null ?>" href="gallery.php">Galleri</a>
             <a class="<?= $uriFile == "about.php" ? "selected" : null ?>" href="about.php">Om</a>
             <a class="<?= $uriFile == "admin.php" ? "selected" : null ?>" href="admin.php">Admin</a>
-            <a class="<?= $uriFile == "admin.php" ? "selected" : null ?>" href="admin.php">(Söksymbol)</a>
         </nav>
 
 
     </header>
-    <article class="object-article">
         <header class="object-header">
             <h3 class="header-title"><?= htmlentities($title) ?></h3>
         </header>

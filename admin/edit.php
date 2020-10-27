@@ -30,8 +30,9 @@
                     <p><input type="submit" name="save" value="Spara" id="submit-btn"></p>
                 </form>
             </div>
-        <?php
-        } 
+            <?php
+        }
+         
         else {
             ?>
             <div class="flex-container">
@@ -49,7 +50,7 @@
                     </div>
                 <?php
                 }
-            }
-                ?>
+        }
+        ?>
             </div>
     </section>

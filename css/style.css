@@ -7,7 +7,7 @@ figure {
 }
 
 article {
-    margin: 0.5% 0%;
+    margin: 0.2% 0%;
 }
 
 /* HEADER */
@@ -68,7 +68,6 @@ article {
 .flex-container a {
     text-decoration: none;
     color: white;
-    border: 1px solid black;
     background-color: black;
     border-top: 1px solid #9c9;
     border-bottom: 1px solid #9c9;
@@ -89,31 +88,30 @@ article {
 
 /******************* GEMENSAMT MELLAN SIDOR *************/
 /* NAVIGATON */
-.previous-btn {
+/* .previous-btn {
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: black;
     float: left;
-    /* text-decoration: none; */
     margin-left: 2vh;
+} */
+
+
+#previous-btn {
+    font-weight: bold;
+    color: black;
+    float: left;
+    margin-left: 3vh;
 }
 
-.previous-btn:hover {
-    text-decoration: underline;
-}
 
-.next-btn {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+#next-btn {
     color: black;
     float: right;
     font-weight: bold;
-    /* text-decoration: none; */
     margin-right: 2vh;
 }
 
-.next-btn:hover {
-    text-decoration: underline;
-}
 
 .center-btn {
     font-weight: bold;
@@ -125,27 +123,12 @@ article {
     margin: 5% auto;
 }
 
-.previous-btn-gallery {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    float: left;
-    font-weight: bold;
-    margin-left: 3%;
-}
-
-.next-btn-gallery {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    float: right;
-    font-weight: bold;
-    margin-right: 80%;
-}
 
 .gallery-img {
-    width: 15%;
+    height: 250px;
+    width: 345px;
     margin: 0.5em;
     display: line;
-    /* margin: 5% 1%; */
 }
 
 .gallery-container {
@@ -155,6 +138,31 @@ article {
     margin-top: 3%;
 }
 
+.material-icons {
+    font-size: 35px !important;
+    text-decoration: none;
+    color: black;
+}
+
+.material-icons:hover {
+    background-color: lightgrey;
+}
+
+.paging {
+    max-height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paging a:hover {
+    background-color: lightgrey;
+}
+
+#disabled {
+    color: grey;
+}
+
 
 
 
@@ -162,7 +170,6 @@ article {
 
 /**************************** MAIN/OBJECT ******************/
 .object-header {
-    /* background-color: rgb(120, 204, 120); */
     background: linear-gradient(to top, #63be8c, rgb(26, 196, 91));
     height: 6vh;
     margin-bottom: 1%;
@@ -217,6 +224,7 @@ article {
 
 .text-container h2 {
     text-align: center;
+    font-size: 30px;
 }
 
 .text-container h3 {
@@ -265,10 +273,8 @@ blockquote {
 
 .flex-wrap-article {
     padding: 1%;
-    margin: 1% 2%;
-    width: 25%;
+    width: 20%;
     text-align: center;
-    border: solid 1px black;
 }
 
 .flex-wrap img {
@@ -294,7 +300,6 @@ blockquote {
 .maps-wrap {
     flex-direction: row;
     padding: 1%;
-    /* margin: 1% 2%; */
     width: 18%;
     text-align: center;
 }
@@ -306,10 +311,10 @@ blockquote {
 .about-aside {
     width: 15%;
     margin: 1%;
+    margin-left: 2.5%;
 }
 
 .about-aside a {
-    /* text-decoration: none; */
     color: black;
     font: bold medium Georgia;
 }
@@ -321,16 +326,28 @@ blockquote {
 .ram {
     border: 1px solid black;
     padding: 2% 8%;
-     /* border-bottom: none; */
 }
 
+.about-me {
+    width: 50%;
+    float: right;
+    margin: 0% 15%;
+}
+
+.about-me p{
+    font: medium Georgia;
+}
+
+.about-me img {
+    height: 15%;
+    width: 30%;
+}
 
 
 /******************* LOGIN ***********/
 .login-container {
     text-align: center;
     width: 50%;
-    /* height: 25vh; */
     margin: 4% auto;
 }
 
@@ -382,12 +399,8 @@ form label {
     font: bold larger Georgia;
 }
 
-
-
-
 .flex-div {
     display: flex;
-    /* justify-content: space-around; */
     width: 50%;
     margin: auto;
 }
@@ -432,11 +445,16 @@ form p {
 
 
 /***********************************' FOOTER ******************/
-.footern {
+.footer {
     margin-top: 3%;
     padding: 1%;
     background: linear-gradient(to bottom right, #14693a, rgb(96, 182, 129));
     text-align: center;
+    height: 12vh;
+}
+
+.footer p {
+    font: medium Georgia;
 }
 
 #copyright {
@@ -450,25 +468,16 @@ form p {
     font: bold medium Georgia;
 }
 
-
-
-
-
-
-
-/* html {
-    background-color: #fff;
-    overflow-y: scroll;
+.site-footer a{
+    color: black;
+    font-weight: bold;
+    margin: 2% 1%;
 }
 
-body {
-    margin: auto;
-    padding: 4px;
-    width: auto;
-    height: auto;
-    background: linear-gradient(to bottom right, #ebe3e3, #fff);
-    border-radius: 10px;
-} */
+.site-footer a:hover {
+    background-color: lightgrey;
+}
+
 
 /* responsive */
 /* @media (max-width: 980px) {
@@ -478,176 +487,3 @@ body {
     }
 }
 
-main {
-    min-height: 30em;
-}
-
-article {
-    margin: 15px;
-    overflow: auto;
-}
-
-.about-header img {
-    float: left;
-}
-
-.about-header p {
-    padding: 5px;
-    padding-left: 320px;
-    padding-bottom: 150px;
-    line-height: 140%;
-}
-
-.katt-header img {
-    width: 300px;
-    height: 380px;
-    float: left;
-}
-
-.katt-header p {
-    padding: 5px;
-    padding-left: 320px;
-    padding-bottom: 230px;
-    line-height: 140%;
-}
-
-h1 {
-    font-size: 40px;
-    text-align: center;
-    color: #fbbe46;
-    margin: 1%;
-}
-
-
-
-.me {
-    width: 300px;
-    height: 380px;
-}
-
-*/
-
-
-
-/*
-.byline {
-    padding: 15px;
-    border: 1px solid #454545;
-    border-radius: 10px;
-    width: 60%;
-    height: 130px;
-    background-color: #ffe;
-    margin: auto;
-}
-
-.byline img {
-    width: 120px;
-    height: 130px;
-    float: left;
-}
-
-.byline p {
-    line-height: 125%;
-    padding-left: 150px;
-    padding-bottom: 0%;
-    display: block;
-    margin: 0;
-    text-align: justify;
-    font-size: 15px;
-}
-
-hr {
-    border-top: 1px dashed black;
-    margin-top: 15px;
-    opacity: 50%;
-}
-
-#textByline {
-    padding-top: 1em;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 16px;
-}
-*/
-
-
-/* unvisited link */
-/*
-a:link {
-    color: #f00;
-}
-
-/* visited link */
-/*
-a:visited {
-    color: darkgreen;
-}
-
-a:hover {
-    color: blue;
-}
-
-a:active {
-    color: purple;
-}
-
-a.selected {
-    color: blueviolet;
-}
-
-aside {
-    width: 30%;
-    float: left;
-    margin: 1em;
-}
-
-.wrap-main {
-    overflow: auto;
-}
-
-h2 {
-    text-align: center;
-    text-decoration: underline;
-}
-
-.flashmessage {
-    padding: 1em;
-    border: 3px solid #fbbe46;
-    background-color: blanchedalmond;
-    color: #154360;
-    text-align: center;
-}
-
-#message {
-    width: 500px;
-}
-
-textarea {
-    width: 250px;
-    height: 100px;
-}
-
-
-table {
-    border: 1px solid #666;
-}
-
-th {
-    background-color: #999;
-}
-
-tr:hover {
-    background-color: #eee;
-}
-
-input[type=search] {
-    width: 30em;
-}
-
-#search-engine {
-    margin-left: 3%;
-}
-
-input:read-only {
-    background-color: #ebe3e3;
-} */

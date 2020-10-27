@@ -14,12 +14,12 @@ $nameNextPage = nameNextPage($db, "object", $id);
 
 if ($namePreviousPage) {
     echo <<<EOD
-    <a href="?page=object-info&name=$namePreviousPage" class="previous-btn">Föregående objekt</a>
+    <a href="?page=object-info&name=$namePreviousPage" id="previous-btn" class="material-icons">&#xe5c4;</a>
     EOD;
 }
 if ($nameNextPage) {
     echo <<<EOD
-    <a href="?page=object-info&name=$nameNextPage" class="next-btn">Nästa objekt</a>
+    <a href="?page=object-info&name=$nameNextPage" id="next-btn" class="material-icons">&#xe5c8;</a>
     EOD;
 }
 echo <<<EOD

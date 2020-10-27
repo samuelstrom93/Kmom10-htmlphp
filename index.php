@@ -19,7 +19,7 @@ foreach ($res as $row) {
             <figcaption>$image1Text</figcaption>
             </figure>
             <div class="text-container">
-            <p>$data</p>
+            <p>$data
             </div>
             <p class="author">Författare: $author</p>
             </article>

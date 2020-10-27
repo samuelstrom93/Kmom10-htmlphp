@@ -18,9 +18,9 @@ if (isset($_SESSION['user'])) {
                 <h2>Logga in</h2>
                 <div class="form-container">
             <form method="post" action="?page=login-process" class="form-flex">
-                <label for="user">Användarnamn:</label>
+                <label>Användarnamn:</label>
                 <input type="text" name="user" placeholder="admin eller doe" required>
-                <label for="password">Lösenord:</label>
+                <label>Lösenord:</label>
                 <input type="password" name="password" required>
                 <input type="submit" name="login" value="Logga in" id="submit-btn">
             </form>

@@ -12,25 +12,22 @@ include("incl/header.php");
         if (isset($_GET['page'])) {
 
             if ($_GET['page'] != 1) {
-                ?><a href="?page=<?=$_GET['page']-1?>" class="previous-btn">Föregående sida</a>
+                ?><a href="?page=<?=$_GET['page']-1?>" id="previous-btn" class="material-icons">&#xe5c4;</a>
                 <?php
             }
             if ($_GET['page'] != 3) {
-                ?><a href="?page=<?=$_GET['page']+1?>" class="next-btn">Nästa sida</a>
+                ?><a href="?page=<?=$_GET['page']+1?>" id="next-btn" class="material-icons">&#xe5c8;</a>
                 <?php
             }
         }
         if (!(isset($_GET['page']))) {
-                ?><a href="maps.php?page=2" class="next-btn">Nästa sida</a>
+                ?><a href="maps.php?page=2" id="next-btn" class="material-icons">&#xe5c8;</a>
                 <?php
         }
 ?>
 
+<?php $gpsArray = getGPS($db);
 
-<?php $gpsArray = getGPS($db);?>
-
-<!-- /********** EN LÖSNING MED ENDAST KARTOR **********/ -->
-<?php
 if (isset($_GET['page'])) {
 
     if ($_GET['page'] == 1) {
@@ -62,7 +59,6 @@ else
     <?php
 }
 ?>
-</article>
 <?php include("incl/footer.php"); ?>
 
 

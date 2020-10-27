@@ -43,19 +43,27 @@ function getPicturesCount($db)
     $sql = "SELECT COUNT(image1) FROM object";
     $stmt = $db->prepare($sql);
     $stmt->execute();
-    return $stmt->fetch(PDO::FETCH_COLUMN);
+    return intval($stmt->fetch(PDO::FETCH_COLUMN));
 }
 
-function getPictures($db)
+function getObjectCount($db)
 {
-    $sql = "SELECT image1 FROM object
-    UNION
-    SELECT image1 FROM article";
+    $sql = "SELECT COUNT(*) FROM object";
     $stmt = $db->prepare($sql);
+    $stmt->execute();
+    return intval($stmt->fetch(PDO::FETCH_COLUMN));
+}
+
+
+function getPicturesByPage($db, $limit, $offset)
+{
+    $sql = "SELECT * FROM object ORDER BY id LIMIT :limit OFFSET :offset";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-
 
 function getAllFrom($db, $table)
 {
@@ -68,7 +76,7 @@ function getAllFrom($db, $table)
 
 function getAllArticles($db)
 {
-    $sql = "SELECT * FROM article WHERE id = 2 OR id = 18 OR id = 19";
+    $sql = "SELECT * FROM article WHERE id = 18 OR id = 19";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_BOTH);
@@ -85,13 +93,12 @@ function getMaps($db)
 function getMapsByPage($startIndex, $endIndex, $gpsArray)
 {
     for ($i = $startIndex; $i < $endIndex; $i++) {
-?>
-        <div class="maps-wrap">
-            <?php echo $gpsArray[$i - 1]['gps']; ?>
+
+        ?><div class="maps-wrap">
+            <?php echo "<b>Koordinater:</b><br>" . $gpsArray[$i - 1]['gps']; ?>
             <a href="img/800/<?= $i < 10 ? sprintf("%02d", $i) : $i; ?>_karta.jpg"><img src="img/orig/<?= $i < 10 ? sprintf("%02d", $i) : $i; ?>_karta.jpg" alt="Kartbild"></a>
-        </div>
-    <?php
-    }
+        </div><?php
+        }
 }
 
 function getGPS($db)
@@ -194,6 +201,5 @@ function printFormToInsertToDatabase($typeToAdd)
                 <p><input type="submit" name="add" value="Lägg till" id="submit-btn"></p>
             </fieldset>
         </form>
-    </div>
-<?php
+    </div><?php
 }

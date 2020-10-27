@@ -37,7 +37,7 @@ if (isset($name)) {
 
 ?>
 
-<a class="previous-btn" href="about.php">Gå tillbaka</a>
+<a class="material-icons" href="about.php">&#xe5c4;</a>
 <?php if (isset($image1)) {
     echo <<<EOD
     <figure class="object-img">
