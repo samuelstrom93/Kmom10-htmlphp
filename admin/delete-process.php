@@ -5,8 +5,6 @@ if (isset($_POST['delete'])) {
     $name  = $_POST['name'];
     $title  = $_POST['title'];
 
-    var_dump($name);
-    
     $params = [$name];
 
     try {

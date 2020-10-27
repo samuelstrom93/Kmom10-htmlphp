@@ -63,7 +63,6 @@ function getMaps($db)
     return $stmt->fetchAll(PDO::FETCH_BOTH);
 }
 
-
 function getMapsByPage($startIndex, $endIndex, $gpsArray){
     for ($i=$startIndex; $i < $endIndex ; $i++) { 
         ?>
@@ -82,10 +81,15 @@ function getGPS($db) {
     return $stmt->fetchAll(PDO::FETCH_BOTH);
 } 
 
-
+function getStartPage($db, $id) {
+    $sql = "SELECT * FROM article WHERE id = :id";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([':id' => $id]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 function getAbout($db) {
-    $sql = "SELECT * FROM article WHERE name LIKE '%om%'";
+    $sql = "SELECT * FROM article WHERE name LIKE '%om%' OR name ='kontakt' OR name = 'kallor'";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -101,8 +105,6 @@ function namePreviousPage($db, $table, $id) {
     return $stmt->fetch(PDO::FETCH_COLUMN);
 }
 
-
-
 function nameNextPage($db, $table, $id) {
     ++$id;
     $sql = "SELECT name FROM $table WHERE id = :id";
@@ -115,7 +117,7 @@ function getRowByName($db, $table, $name) {
     $sql = "SELECT * FROM $table WHERE name = :name";
     $stmt = $db->prepare($sql);
     $stmt->execute([":name" => $name]);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $stmt->fetchAll(PDO::FETCH_BOTH);
 }
 
 function getRowID($db, $table, $id) {

@@ -37,11 +37,11 @@ $stmt->execute();
 echo "<p>Prepare to create the table.<p>";
 $sql = <<<EOD
 CREATE TABLE IF NOT EXISTS "article" (
-	"id"	INTEGER NOT NULL,
-	"name"	TEXT NOT NULL UNIQUE,
-	"title"	TEXT NOT NULL,
-	"data"	TEXT NOT NULL,
-	"author"	TEXT NOT NULL,
+	"id"	INTEGER NOT null,
+	"name"	TEXT NOT null UNIQUE,
+	"title"	TEXT NOT null,
+	"data"	TEXT NOT null,
+	"author"	TEXT NOT null,
 	"gps"	TEXT,
 	"mapImage"	TEXT,
 	"image1"	TEXT,
@@ -82,7 +82,7 @@ $params = [1,'start','Nättraby Vägmuseum','
 <p>[BILD SAKNAS]</p>
 
 <p>Ett gammalt vykort med en bil hälsar dig välkommen till Nättraby. Nättraby Vägmuseum är världens första friluftsmuseum för vägarnas historia på land, räls, vatten och is. Cirka 1908-10. Fotograf okänd. Förlag: I. Lundström, Nättraby. Vykortsbilderna på nattrabyvagmuseum.se är hämtade från Nättrabybon Christian Mattissons vykortsamling.</p>
-','Peter Öjerskog','GPS N56.20783° E15.53065°',NULL,'tva-valvig-stenbro-over-nattrabyan.jpg','Tvåvalvig stenbro över Nättrabyån','Blekingekustvägens tvåvalviga stenbro över Nättrabyån är symbolen för Nättraby Vägmuseum. Den så kallade Landbron uppfördes i början av 1800-talet, togs ur bruk 1934 då biltrafiken blev för intensiv och tung, samt renoverades 1974. Fotograf: Kjell Warnquist, 2008.',NULL,NULL,NULL,NULL];
+','Peter Öjerskog','GPS N56.20783° E15.53065°',null,'tva-valvig-stenbro-over-nattrabyan.jpg','Tvåvalvig stenbro över Nättrabyån','Blekingekustvägens tvåvalviga stenbro över Nättrabyån är symbolen för Nättraby Vägmuseum. Den så kallade Landbron uppfördes i början av 1800-talet, togs ur bruk 1934 då biltrafiken blev för intensiv och tung, samt renoverades 1974. Fotograf: Kjell Warnquist, 2008.',null,null,null,null];
 $stmt->execute($params);
 
 $params = [2,'nattraby-vagmuseum','Om Nättraby Vägmuseum','
@@ -139,7 +139,7 @@ $params = [2,'nattraby-vagmuseum','Om Nättraby Vägmuseum','
 
 Den gamla landsvägen förbi Nättraby gick västerut i kanten mellan skog och åker, som vägtraditionen bjöd. Affären till vänster i förgrunden skaffade sedermera en bensinpump. Affärshuset finns kvar än idag vid vägen som numera heter Idrottsvägen/länsväg 679. 1910-talet. Fotograf och förlag: G.V Guterstam, Sölvesborg. Christian Mattissons vykortssamling.
 -->
-','Peter Öjerskog','GPS N56.20783° E15.53065°',NULL,'gamla-landsvagen.jpg','Skylt Gamla Landsvägen','Det gamla vägnamnet lever kvar på dagens vägnamnskyltar, som här i korsningen länsväg 679/länsväg 678. Väst-östgående länsväg 679 heter fortfarande Gamla Landsvägen förbi Nättraby eftersom det var här som landsvägen gick. Foto: Peter Öjerskog, 2008.',NULL,NULL,NULL,NULL];
+','Peter Öjerskog','GPS N56.20783° E15.53065°',null,'gamla-landsvagen.jpg','Skylt Gamla Landsvägen','Det gamla vägnamnet lever kvar på dagens vägnamnskyltar, som här i korsningen länsväg 679/länsväg 678. Väst-östgående länsväg 679 heter fortfarande Gamla Landsvägen förbi Nättraby eftersom det var här som landsvägen gick. Foto: Peter Öjerskog, 2008.',null,null,null,null];
 $stmt->execute($params);
 
 $params = [17,'kartor','Kartor','
@@ -227,7 +227,7 @@ $params = [17,'kartor','Kartor','
 
 
 <p><img src="img/orig/14_karta.jpg" alt="Karta Stenbron" /></p>
-','Peter Öjerskog','GPS N56.19903° E15.54876° (P-plats N56.20387° E15.54759°)',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL];
+','Peter Öjerskog','GPS N56.19903° E15.54876° (P-plats N56.20387° E15.54759°)',null,null,null,null,null,null,null,null];
 $stmt->execute($params);
 
 $params = [18,'blekinges-vaghistoria','Blekinges väghistoria','
@@ -283,7 +283,7 @@ $params = [18,'blekinges-vaghistoria','Blekinges väghistoria','
 <p>Men när det gäller tåg och båt ser det bättre ut. Kustbanan elektrifierades 2007 efter ett sekels väntan och man kan nu åka Öresundståg hela sträckan Karlskrona-Helsingör via Öresundsbron/Kastrup/Köpenhamn. Tågsträckan Karlskrona-Emmaboda rustades upp 2013. Färjor går från Karlshamn till Klaipeda i Litauen och från Karlskrona till Gdynia i Polen – det nya Europa!</p>
 
 <p><img src="img/orig/karta-blekinge.jpg" alt="Karta Blekinge" /></p>
-','Peter Öjerskog',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL];
+','Peter Öjerskog',null,null,null,null,null,null,null,null,null];
 $stmt->execute($params);
 
 $params = [19,'sveriges-vaghistoria','Sveriges väghistoria','
@@ -575,7 +575,7 @@ $params = [19,'sveriges-vaghistoria','Sveriges väghistoria','
 <p>De hjullösa bilfarkosterna svävar fram över magnetslingor i vägbanan. Solenergidriften är ljudlös och utan avgaser. Ratt, gas, broms och växellåda saknas eftersom färdvägen förprogrammerats i den flytande lillfingerdatorn. Programmeringen och interaktionen med andra human computors gör att krockar är omöjliga trots farter på 300&#160;km/h. Föraren, passageraren och hunden passar på att spela hjärnspel med kompisar på Mars.</p>
 
 <p>Som tur finns en grusväg från kristna tiden i Nättraby bevarad. Där kan man hyra en automobil från 1900-talet och köra museislingan. På grund av förbränningsmotorns avgaser och buller samt bensinbrist - priset är 9.999 euro per deciliter - får endast en enda automobiltur göras om året.</p>
-','Peter Öjerskog',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL];
+','Peter Öjerskog',null,null,null,null,null,null,null,null,null];
 $stmt->execute($params);
 
 $params = [20,'om-vagmuseum','Nättraby Vägmuseum - om tillkomsten','
@@ -626,7 +626,7 @@ $params = [20,'om-vagmuseum','Nättraby Vägmuseum - om tillkomsten','
 <p>Infoskyltar sätts upp vid de 14 utvalda vägmiljöerna. Fyra informationspaviljonger byggs på den nu informella rastplatsen vid stenbron, som stängs av för fordon. En parkeringsplats byggs öster om Ekbergska huset, som ägs av Nättraby Hembygdsförening.</p>
 
 <p>Besökarna går via en nyanlagd gångväg längs Gamla Landsvägen förbi Ekbergska huset och över den magnifika stenvalvsbron över Nättrabyån för att nå paviljongerna. En perfekt entré för fysiska Nättraby Vägmuseum!</p>
-','Peter Öjerskog',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL];
+','Peter Öjerskog',null,null,null,null,null,null,null,null,null];
 $stmt->execute($params);
 
 $params = [21,'om-vagmuseum-natet','Nättraby Vägmuseum ute på nätet','
@@ -638,7 +638,7 @@ $params = [21,'om-vagmuseum-natet','Nättraby Vägmuseum ute på nätet','
 <p>Via kartor och GPS-koordinater hittar besökarna lätt fram till de 14 olika utvalda vägmiljöer som utgör Nättraby Vägmuseum.</p>
 
 <p>Digitala informationen om Nättraby Vägmusem kompletteras i framtiden av fysiska utställningspaviljonger och informationsskyltar i Nättraby, som ligger vid E22&#160;en mil väster om Karlskrona i Blekinge.</p>
-','Peter Öjerskog',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL];
+','Peter Öjerskog',null,null,null,null,null,null,null,null,null];
 $stmt->execute($params);
 
 $params = [22,'om-projektet','Om projektet Nättraby vägmuseum','
@@ -655,7 +655,7 @@ $params = [22,'om-projektet','Om projektet Nättraby vägmuseum','
 <li>Banverket</li>
 <li>Skärgårdstrafiken</li>
 </ul>
-','Peter Öjerskog',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL];
+','Peter Öjerskog',null,null,null,null,null,null,null,null,null];
 $stmt->execute($params);
 
 $params = [23,'om-invigning','Nättraby vägmuseum invigt 2014','
@@ -675,7 +675,7 @@ $params = [23,'om-invigning','Nättraby vägmuseum invigt 2014','
 <p>Nättraby Vägmuseum är världens första friluftsmuseum för vägarnas historia på land, räls, vatten och is. Museet består av 14 befintliga vägmiljöer i Nättraby socken. Från 1000-åriga stigen och 1600-talets stenmurskantade Via Regia till 1900-talets gatstensbilagda riksväg och E22 motorväg. Därtill kommer järnvägar, cykelvägen, vattenvägen Nättrabyån, isvägen, milstolpar, namnminnet Ryttarliden och tvåvalviga stenbron.</p>
 
 <p>Sedan 2009 har information om Nättraby Vägmuseum publicerats på http://www.nattrabyvagmuseum.se men nu finns också fysisk skylt och broschyrer.</p>
-','Peter Öjerskog','GPS N56.20783° E15.53065°',NULL,'skylt-vagmuseum.jpg','Skylt vägmuseum','Nättraby Vägmuseum har officiellt invigts genom att en stor skylt med information på båda sidor satts upp på rastplatsen nära den gamla stenbron vid E22 väster om Karlskrona. I en låda på skylten finns även broschyrer. Foto: Peter Öjerskog, 2014.',NULL,NULL,NULL,NULL];
+','Peter Öjerskog','GPS N56.20783° E15.53065°',null,'skylt-vagmuseum.jpg','Skylt vägmuseum','Nättraby Vägmuseum har officiellt invigts genom att en stor skylt med information på båda sidor satts upp på rastplatsen nära den gamla stenbron vid E22 väster om Karlskrona. I en låda på skylten finns även broschyrer. Foto: Peter Öjerskog, 2014.',null,null,null,null];
 $stmt->execute($params);
 
 $params = [24,'kontakt','Kontakt','
@@ -697,7 +697,7 @@ Journalist Peter Öjerskog, även sekreterare i styrgruppen, +46 (0)708-52&#160;
 <p>För mediaservice kontakta:</p>
 
 <p>Peter Öjerskog, projektledare Nättraby Vägmuseum, Långgatan 14&#160;B, SE-371&#160;38 Karlskrona, +46 (0)708-52&#160;99&#160;13 peter.ojerskog@swedenoffroad.com</p>
-','Peter Öjerskog',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL];
+','Peter Öjerskog',null,null,null,null,null,null,null,null,null];
 $stmt->execute($params);
 
 $params = [25,'kallor','Källor','
@@ -881,7 +881,7 @@ Resa i Blekinge, utställningskompendium, Blekinge Museum.</li>
 <li>Standard, Ängdalen, Motala.</li>
 <li>Texaco, Berg, Lammhult.</li>
 </ul>
-','Peter Öjerskog',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL];
+','Peter Öjerskog',null,null,null,null,null,null,null,null,null];
 $stmt->execute($params);
 
 
@@ -902,4 +902,3 @@ $stmt->execute();
 // Get the results as an array with column names as array keys
 $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 echo "<p>The result contains " . count($res) . " rows.</p>";
-

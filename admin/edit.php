@@ -9,7 +9,7 @@
             $name = $_GET['name'];
             $res = getRowByName($db, 'object', $_GET['name']);
             $title = htmlentities($res[0]['title']);
-            
+
             echo <<<EOD
             <div class="login-container">
             <form method="post" action="?page=delete-process" id="admin-form">
@@ -20,7 +20,6 @@
             </form>
             </div>
             EOD;
-            
         } elseif (isset($_GET['name'])) {
             $rowResult = getRowByName($db, "object", $_GET['name']);
             $title = htmlentities($rowResult[0]['title']); ?>
@@ -32,14 +31,15 @@
                 </form>
             </div>
         <?php
-        } else {
-        ?>
+        } 
+        else {
+            ?>
             <div class="flex-container">
                 <?php foreach ($result as $row) {
                     $imageText200 = htmlentities(mb_substr($row['image1Text'], 0, 200));
                     $name = htmlentities($row['name']);
                     $id = htmlentities($row['id']);
-                ?>
+                    ?>
                     <div class="flex-wrap">
                         <figure class="object-figure"><img src="img/150x150/<?= htmlentities($row['image1']) ?>" alt="<?= htmlentities($row['image1text']) ?>"></figure>
                         <h3><?= htmlentities($row['title']) ?></h3>
@@ -47,9 +47,9 @@
                         <a href="?page=edit&name=<?= $name ?>">Editera</a>
                         <a href="?page=edit&delete=<?= $id ?>&name=<?= $name ?>">Ta bort</a>
                     </div>
-            <?php
+                <?php
                 }
             }
-            ?>
+                ?>
             </div>
     </section>

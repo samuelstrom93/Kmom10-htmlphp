@@ -37,34 +37,29 @@ if (isset($name)) {
 
 ?>
 
-        <a class="previous-btn" href="about.php">Gå tillbaka</a>
-    <?php if (isset($image1)) {
+<a class="previous-btn" href="about.php">Gå tillbaka</a>
+<?php if (isset($image1)) {
+    echo <<<EOD
+    <figure class="object-img">
+        <img src="img/500/$image1" alt="$image1Alt">
+        <figcaption>$image1Text</figcaption>
+    </figure>
+    EOD;
+}
+?>
+<div class="text-container">
+    <p><?= html_entity_decode($data) ?></p>
+
+    <?php
+    if (isset($image2)) {
         ?>
         <figure class="object-img">
-        <img src="img/500/<?= htmlentities($image1)?>" alt="<?htmlentities($image1Alt)?>">
-        <figcaption><?= htmlentities($image1Text) ?></figcaption>
-    </figure>
-    <?php
+            <img src="img/500/<?= htmlentities($image2) ?>" alt="<?htmlentities($image2Alt)?>">
+            <figcaption><?= htmlentities($image2Text) ?></figcaption>
+        </figure>
+        <?php
     }
+
     ?>
-    <div class="text-container">
-        <p><?= html_entity_decode($data) ?></p>
-
-        <?php
-        if (isset($image2)) {
-        ?>
-            <figure class="object-img">
-                <img src="img/500/<?= htmlentities($image2) ?>" alt="<?htmlentities($image2Alt)?>">
-                <figcaption><?= htmlentities($image2Text) ?></figcaption>
-            </figure>
-
-        <?php
-        }
-
-        ?>
-        <p class="author">Författare: <?= htmlentities($author) ?></p>
-</article>
-
-
-
-
+    <p class="author">Författare: <?= htmlentities($author) ?></p>
+    </article>

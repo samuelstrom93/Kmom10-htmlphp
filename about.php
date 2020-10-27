@@ -19,7 +19,7 @@ $pages = [
 
 $page = $pages[$pageReference] ?? null;
 
-$title = " Artiklar";
+$title = " Om";
 
 require __DIR__ . "/incl/header.php";
 require __DIR__ . "/incl/multipage.php";
