@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=2.0;">
     <title><?= $title ?></title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel='shortcut icon' href='img/favicon.png' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>

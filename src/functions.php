@@ -38,6 +38,25 @@ function connectToDatabase($dsn)
     return $db;
 }
 
+function getPicturesCount($db)
+{
+    $sql = "SELECT COUNT(image1) FROM object";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_COLUMN);
+}
+
+function getPictures($db)
+{
+    $sql = "SELECT image1 FROM object
+    UNION
+    SELECT image1 FROM article";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
 function getAllFrom($db, $table)
 {
     $sql = "SELECT * FROM $table";
@@ -63,41 +82,44 @@ function getMaps($db)
     return $stmt->fetchAll(PDO::FETCH_BOTH);
 }
 
-function getMapsByPage($startIndex, $endIndex, $gpsArray){
-    for ($i=$startIndex; $i < $endIndex ; $i++) { 
-        ?>
+function getMapsByPage($startIndex, $endIndex, $gpsArray)
+{
+    for ($i = $startIndex; $i < $endIndex; $i++) {
+?>
         <div class="maps-wrap">
-            <?php echo $gpsArray[$i-1]['gps'];?>
-            <a href="img/800/<?=$i < 10 ? sprintf("%02d", $i) : $i;?>_karta.jpg"><img src="img/orig/<?=$i < 10 ? sprintf("%02d", $i) : $i;?>_karta.jpg" alt="Kartbild"></a>
+            <?php echo $gpsArray[$i - 1]['gps']; ?>
+            <a href="img/800/<?= $i < 10 ? sprintf("%02d", $i) : $i; ?>_karta.jpg"><img src="img/orig/<?= $i < 10 ? sprintf("%02d", $i) : $i; ?>_karta.jpg" alt="Kartbild"></a>
         </div>
-        <?php
+    <?php
     }
 }
 
-function getGPS($db) {
+function getGPS($db)
+{
     $sql = "SELECT gps FROM object";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_BOTH);
-} 
+}
 
-function getStartPage($db, $id) {
+function getStartPage($db, $id)
+{
     $sql = "SELECT * FROM article WHERE id = :id";
     $stmt = $db->prepare($sql);
     $stmt->execute([':id' => $id]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getAbout($db) {
+function getAbout($db)
+{
     $sql = "SELECT * FROM article WHERE name LIKE '%om%' OR name ='kontakt' OR name = 'kallor'";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-
-
-function namePreviousPage($db, $table, $id) {
+function namePreviousPage($db, $table, $id)
+{
     --$id;
     $sql = "SELECT name FROM $table WHERE id = :id";
     $stmt = $db->prepare($sql);
@@ -105,7 +127,8 @@ function namePreviousPage($db, $table, $id) {
     return $stmt->fetch(PDO::FETCH_COLUMN);
 }
 
-function nameNextPage($db, $table, $id) {
+function nameNextPage($db, $table, $id)
+{
     ++$id;
     $sql = "SELECT name FROM $table WHERE id = :id";
     $stmt = $db->prepare($sql);
@@ -113,14 +136,16 @@ function nameNextPage($db, $table, $id) {
     return $stmt->fetch(PDO::FETCH_COLUMN);
 }
 
-function getRowByName($db, $table, $name) {
+function getRowByName($db, $table, $name)
+{
     $sql = "SELECT * FROM $table WHERE name = :name";
     $stmt = $db->prepare($sql);
     $stmt->execute([":name" => $name]);
     return $stmt->fetchAll(PDO::FETCH_BOTH);
 }
 
-function getRowID($db, $table, $id) {
+function getRowID($db, $table, $id)
+{
     ++$id;
     $sql = "SELECT name FROM $table WHERE id = :id";
     $stmt = $db->prepare($sql);
@@ -128,20 +153,21 @@ function getRowID($db, $table, $id) {
     return $stmt->fetch(PDO::FETCH_COLUMN);
 }
 
-function getRowByTitle($db, $table, $title) {
+function getRowByTitle($db, $table, $title)
+{
     $sql = "SELECT * FROM $table WHERE title = :title";
     $stmt = $db->prepare($sql);
     $stmt->execute([":title" => $title]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-
-function printFormToInsertToDatabase($typeToAdd) {
+function printFormToInsertToDatabase($typeToAdd)
+{
     ?>
     <div class="login-container">
-        <form method="post" action="?page=create-process&edit=<?=$typeToAdd?>">
+        <form method="post" action="?page=create-process&edit=<?= $typeToAdd ?>">
             <fieldset>
-                <legend id="legend"><?=$typeToAdd?></legend>
+                <legend id="legend"><?= $typeToAdd ?></legend>
                 <p><label>id<br><input type="number" name="id" required></label></p>
                 <p><label>name<br><input type="text" name="name" required></label></p>
                 <p><label>title<br><input type="text" name="title" required></label></p>

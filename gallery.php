@@ -1,53 +1,72 @@
 <!-- Göra en lösning där jag plockar går igenom nummer för nummer
 och i numret väljer ($i_namn) och ($i_karta) igenom 1-14 -->
-
-
-
 <?php
+
+$title = "Galleri";
 require __DIR__ . "/src/functions.php";
 require __DIR__ . "/config.php";
 
-$title = "Galleri";
 include("incl/header.php");
 
-if (isset($_GET['page'])) {
-        $pageNmbr = $_GET['page'];    
-?>
-        <?php if ($pageNmbr != 1) {
-            ?><a href="?page=<?=$pageNmbr-1?>" class="previous-btn">Föregående sida</a><?php
-        }
-        if ($pageNmbr != 4) {
-            ?><a href="?page=<?=$pageNmbr+1?>" class="next-btn">Nästa sida</a><?php
-        }
+// try {
+$total = getPicturesCount($db);
+// $total = intval($total[0]['pictures']);
+$total = intval($total);
+$limit = 6;
+$pages = ceil($total / $limit);
+
+$page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
+    'options' => array(
+        'default'   => 1,
+        'min_range' => 1,
+    ),
+)));
+
+$offset = ($page - 1) * $limit;
+
+$start = $offset + 1;
+$end = min(($offset + $limit), $total);
+
+// The "back" link
+$prevlink = ($page > 1) ? '<a href="?page=1" title="First page" class="material-icons">&#xe5dc;</a> <a href="?page=' . ($page - 1) . '" title="Previous page" class="material-icons">&#xe5c4;</a>' : '<span id="disabled" class="material-icons">&#xe5dc;</span> <span id="disabled" class="material-icons">&#xe5c4;</span>';
+
+// The "forward" link
+$nextlink = ($page < $pages) ? '<a href="?page=' . ($page + 1) . '" title="Next page" class="material-icons">&#xe5c8;</a> <a href="?page=' . $pages . '" title="Last page" class="material-icons">&#xe5dd;</a>' : '<span id="disabled" class="material-icons">&#xe5c8;</span> <span id="disabled" class="material-icons">&#xe5dd;</span>';
+
+echo '<div id="paging"><p>', $prevlink, ' Sida ', $page, ' av ', $pages, ' sidor, visar ', $start, '-', $end, ' av ', $total, ' resultat ', $nextlink, ' </p></div>';
+
+$sql = "SELECT image1 FROM object ORDER BY id LIMIT :limit OFFSET :offset";
+// SELECT
+//     image1
+// FROM
+//     object
+// ORDER BY
+//     id
+// LIMIT
+//     :limit
+// OFFSET
+//     :offset
+// ";
+$stmt = $db->prepare($sql);
+
+// Bind the query params
+$stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+$stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+$stmt->execute();
+
+$res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+foreach ($res as $row) {
+    $picture = $row['image1'];
+
+    echo <<<EOD
+            <img src="img/orig/$picture" class="gallery-img" alt="galleribild">
+            EOD;
 }
 
-if (!isset($_GET['page'])) {
-    ?><a href="gallery.php?page=2" class="next-btn">Nästa sida</a><?php
-}
-
-// Kan hämta datan via SQL-anrop istället om jag vill
-$pictures = glob('img/150x150/*.jpg', GLOB_BRACE);
-?>
-<div class="gallery-container">
-    
-<?php if (isset($_GET['page'])) {
-    $endIndex = 10 * $_GET['page'];
-    $index = $endIndex - 10;
-
-    for ($i=$index; $i < $endIndex ; $i++) { 
-        ?><img src="<?=$pictures[$i]?>" class="gallery-img" alt=""><?php
-    }
-}
-else
-{
-    for ($i=0; $i < 10 ; $i++) { 
-        ?><img src="<?=$pictures[$i]?>" class="gallery-img" alt=""><?php
-    }
-}
-?>
-</div>
-</article>
-<?php include("incl/footer.php"); ?>
+include("incl/footer.php");
 
 
 
