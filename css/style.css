@@ -89,7 +89,6 @@ article {
 
 /******************* GEMENSAMT MELLAN SIDOR *************/
 /* NAVIGATON */
-
 .previous-btn {
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -98,8 +97,6 @@ article {
     /* text-decoration: none; */
     margin-left: 2vh;
 }
-
-
 
 .previous-btn:hover {
     text-decoration: underline;
@@ -127,7 +124,6 @@ article {
     display: block;
     margin: 5% auto;
 }
-
 
 .previous-btn-gallery {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -165,7 +161,6 @@ article {
 
 
 /**************************** MAIN/OBJECT ******************/
-
 .object-header {
     /* background-color: rgb(120, 204, 120); */
     background: linear-gradient(to top, #63be8c, rgb(26, 196, 91));
@@ -308,9 +303,6 @@ blockquote {
 
 
 /********************* ABOUT **************/
-
-
-
 .about-aside {
     width: 15%;
     margin: 1%;
