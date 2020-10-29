@@ -4,12 +4,19 @@ include("incl/header.php");?>
 
 <h2>Kodstruktur</h2>
 <p>Jag har hunnit ackumulera en del erfarenhet av programmering nu under cirka ett år och förstått vikten av att ha struktur när koden växer.
-    Jag har högstsa utsträckning försökt bryta ut kod till funktioner enligt DRY men även om det är något större kodstycke som bryta ner till funktion och namnge så att stycket blir mer läsbart jämfört med flera kodrader.
+    Jag har högsta utsträckning försökt bryta ut kod till funktioner enligt DRY men även om det är något större kodstycke och då namnge så att stycket blir mer läsbart jämfört med flera kodrader.
     Sedan har jag även försökt jobba med att samla kod i config-filen. Där sparar jag filnamnet till databasen samt sparar kopplingen till dabatasen i <code>$db</code> och så kommer jag åt den på varje sida med en require config-filen för att minska repetitiv kod.
     <br>
     Jag har på de sidorna där jag haft flera undersidor jobbat med en sidkontroller för att få snyggare kod och samlat dessa undersidor i en mapp med samma namn. T.ex. admin.php är sidkontroller till <code>admin/</code>
     På vissa sidor har jag istället för att skapa undersidor försökt använda mig bra funktionalitet som skalar om databasen skulle bli större.
-    T.ex. på gallery.php så letade jag efter en pagination-lösning för att använda mig av querys till databasen för att visa x antal på varje sida och kunna hoppa till första och sista sidan eller bara en i taget. Det är funktionalitet som således skalar och är återanvändbar kod.
+    T.ex. på gallery.php så hittade jag en pagination-lösning för att använda mig av querys till databasen (mha av limit och offset) för att visa x antal på varje sida och kunna hoppa till första och sista sidan eller bara en i taget. Det är funktionalitet som således skalar ifall databasen blir större och är återanvändbar kod.
+    <br><br>
+    Till en början så använde jag mig mycket av mycket att blanda php och html-kod inuti varandra. Men det blev både svårt att få koden att gå igenom publish men också så blev koden mindre läsbar. Så jag har försökt i slutet av projektet gå igenom koden och använda mig mycket echo eller heredoc för att se till att koden blir mer läsbar och försöka hålla mig till att skriva ut HTML-kod mha. av php.
+    Jag har inte riktigt förstått exakt vad som är best practice men jag har förstått att man ska försöka ha så lite blandad kod som möjlig just pga. läsbarheten.
+    <br><br>
+    <b>Säkerhetshål</b> - Jag har försökt använda mig av bindParam, eller t.ex. <code>title = :title";</code> så att parametrarna i databasmetoden inte är sårbara för SQL-injections eller liknande.
+    Därför har jag också använt mig av htmlentites som jag förstår är bra att använda ifall det datan är användarinmatad i vyn. Jag tror att på några ställen kan jag har överanvänt det där det inte behövs men säkerhetsaspekten är viktig och något jag tagit hänsyn till.
+    
     </p>
 <h2>Responsivitet</h2>
 <p>I sidans CSS har jag försökt använda mig av procent-satser för storlek så att koden är flexibel. Men det är svårt och jag hoppas att det blir bättre och bättre med erfarenhet.

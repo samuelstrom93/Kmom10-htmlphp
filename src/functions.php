@@ -56,6 +56,16 @@ function getAllArticles($db)
     return $stmt->fetchAll(PDO::FETCH_BOTH);
 }
 
+function getArticleByName($db, $name) 
+{
+    $sql = "SELECT * FROM article WHERE name = :name";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([":name" => $name]);
+
+    $res = $stmt->fetchAll(PDO::FETCH_BOTH);
+    return $res;
+}
+
 function getMapsByPage($startIndex, $endIndex, $gpsArray)
 {
     for ($i = $startIndex; $i < $endIndex; $i++) {

@@ -7,7 +7,7 @@ require __DIR__ . "/config.php";
 include("incl/header.php");
 
 if (isset($_GET['limit'])) {
-    $limit = $_GET['limit'] ?? null;
+    $limit = htmlentities($_GET['limit'] ?? null);
 } else {
     $limit = 4;
 }
@@ -23,6 +23,15 @@ $page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
     ),
 )));
 
+
+echo <<<EOD
+<form action="#" id="form-limit">
+    <label id="label-limit">Antal bilder att visa</label><br>
+    <input type="numeric" name="limit" value="$limit" id="limit">
+    <input type="submit" name="submit" value="Välj">
+</form>
+EOD;
+
 $offset = ($page - 1) * $limit;
 $start = $offset + 1;
 $end = min(($offset + $limit), $total);
@@ -35,14 +44,6 @@ $nextlink = ($page < $pages) ? '<a href="?page=' . ($page + 1) . '&limit=' . $li
 echo '<div class="paging"><p>', $prevlink, ' Sida ', $page, ' av ', $pages, ' sidor, visar ', $start, '-', $end, ' av ', $total, ' resultat ', $nextlink, ' </p></div>';
 echo "</div>";
 
-echo <<<EOD
-<form action="#" id="form-limit">
-    <label for="name" id="label-limit">Antal bilder att visa</label><br>
-    <input type="numeric" name="limit" value="$limit" id="limit">
-    <input type="submit" name="submit" value="Välj" id="">
-</form>
-EOD;
-
 $res = getPicturesByPage($db, $limit, $offset);
 
 foreach ($res as $row) {
@@ -51,7 +52,7 @@ foreach ($res as $row) {
     $id = htmlentities($row['id']);
 
     echo <<<EOD
-            <a href="object.php?page=object-info&name=$name&id=$id"><img src="img/orig/$picture" class="gallery-img" alt="galleribild"></a>
+            <a href="object.php?page=object-info&name=$name&id=$id"><img src="img/orig/$picture" class="gallery-img" alt="galleri-bild"></a>
             EOD;
 }
 echo "<blockquote>Klicka på respektive bild för mer info</blockquote>";

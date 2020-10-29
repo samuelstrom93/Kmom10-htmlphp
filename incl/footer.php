@@ -1,7 +1,7 @@
 <footer class="site-footer">
     <div class="footer">
 
-        <p>Nättraby Hembygdsförening i Blekinge har tillsammans med intressenter skapat Nättraby Vägmuseum.</p>
+        <blockquote>Nättraby Hembygdsförening i Blekinge har tillsammans med intressenter skapat Nättraby Vägmuseum.</blockquote>
         <p><a href="about.php?page=about-info&name=kontakt">Kontakt</a></p>
         <br>
         <a href="http://validator.w3.org/check/referer">HTML5</a>

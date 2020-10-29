@@ -8,8 +8,8 @@ if (isset($name)) {
 
     list($id, $name, $title, $data, $author, $gps, $mapImage, $image1, $image1Alt, $image1Text, $text, $image2, $image2Alt, $image2Text) = $res[0];
 }
-$namePreviousPage = namePreviousPage($db, "object", $id);
-$nameNextPage = nameNextPage($db, "object", $id);
+$namePreviousPage = htmlentities(namePreviousPage($db, "object", $id));
+$nameNextPage = htmlentities(nameNextPage($db, "object", $id));
 
 
 if ($namePreviousPage) {
@@ -29,7 +29,7 @@ echo <<<EOD
     <figcaption>$image1Text</figcaption>
     </figure>
     <div class="text-container">
-    <p>$data</p>
+    $data
     EOD;
 if (isset($image2)) {
     echo <<<EOD
@@ -39,5 +39,5 @@ if (isset($image2)) {
     </figure>
     EOD;
 }
-?>
-<p class="author">Författare: <?= htmlentities($author) ?></p>
+
+echo "<p class='author'>Författare: $author</p></div>";

@@ -127,6 +127,10 @@ article {
     font-size: 0.9em;
 }
 
+#form-limit {
+    float: left;
+}
+
 .gallery-img {
     height: 250px;
     width: 320px;

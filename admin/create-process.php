@@ -30,14 +30,7 @@ if (isset($_POST['add'])) {
     $stmt = $db->prepare($sql);
 
 
-    // $sql = "INSERT INTO article VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    // $stmt = $db->prepare($sql);
-
-
-
-    // Execute the SQL to INSERT within a try-catch to catch any errors.
     try {
-        // $stmt->bindValue(':typeToAdd', $typeToAdd, PDO::PARAM_STR);
         $stmt->bindParam(":typeToAdd", $typeToAdd);
         $stmt->execute($params);
     } catch (PDOException $e) {
@@ -47,11 +40,6 @@ if (isset($_POST['add'])) {
         echo "<p>The error message:<pre>" . print_r($stmt->errorInfo(), true) . "</pre>";
         throw $e;
     }
-
-    // Print out the successful results
-    // echo "<p>Inserted the row:<br></p><pre>" . print_r($params, true) . "</pre>";
-    // echo "<p><a href='insert.php'>Insert another row</a>.</p>";
-    // exit();
 
     $_SESSION["flashmessage"] = "Du har skapat en ny $typeToAdd med namnet $name och titeln $title.";
     header("Location: ?page=create");

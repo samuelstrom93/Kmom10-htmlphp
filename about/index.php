@@ -18,13 +18,14 @@ $result = getAbout($db);
 <aside class="about-aside">
 <h2>Om Nättraby Vägmuseum</h2>
     <?php foreach ($result as $row) {
-        $title = $row['title'];
-        $name = $row['name'];
+        $title = htmlentities($row['title']);
+        $name = htmlentities($row['name']);
 
-        ?><div class="ram">
-            <p><a href="?page=about-info&name=<?= $name ?>"><?= $title ?></a></p>
-        </div>
-        <?php
+        echo <<<EOD
+            <div class="ram">
+            <p><a href="?page=about-info&name=$name">$title</a></p>
+            </div>
+            EOD;
     }
     ?>
 </aside>

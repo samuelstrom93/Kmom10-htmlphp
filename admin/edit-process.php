@@ -43,9 +43,6 @@ if (isset($_POST['save'])) {
         throw $e;
     }
 
-    // echo "<p><a href='?page=edit' class='center-btn'>Uppdatera ett annat objekt</a></p>";
-    // exit();
-
     $_SESSION["flashmessage"] = "Du har uppdaterat $title.";
     header("Location: ?page=edit");
 
