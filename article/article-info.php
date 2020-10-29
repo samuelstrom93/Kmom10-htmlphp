@@ -14,8 +14,6 @@ $image2 = null;
 $image2Alt = null;
 $image2Text = null;
 
-// $title = $res['title'];
-
 $name = isset($_GET['name'])
     ? $_GET['name'] : null;
 

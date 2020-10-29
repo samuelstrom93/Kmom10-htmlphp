@@ -41,4 +41,3 @@ if (isset($image2)) {
 }
 ?>
 <p class="author">Författare: <?= htmlentities($author) ?></p>
-</article>

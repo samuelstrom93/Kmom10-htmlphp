@@ -49,17 +49,16 @@ if (isset($name)) {
 ?>
 <div class="text-container">
     <p><?= html_entity_decode($data) ?></p>
-
+<div>
     <?php
     if (isset($image2)) {
-        ?>
+        echo <<<EOD
         <figure class="object-img">
-            <img src="img/500/<?= htmlentities($image2) ?>" alt="<?htmlentities($image2Alt)?>">
-            <figcaption><?= htmlentities($image2Text) ?></figcaption>
+            <img src="img/500/$image2" alt="$image2Alt">
+            <figcaption>$image2Text</figcaption>
         </figure>
-        <?php
+        EOD;
     }
 
     ?>
     <p class="author">Författare: <?= htmlentities($author) ?></p>
-    </article>

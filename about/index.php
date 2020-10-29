@@ -1,10 +1,8 @@
 <?php
 $title = "Om";
-
 $result = getAbout($db);
 
 ?>
-
 <div class="about-me">
 <h2>Om utvecklaren</h2>
 
@@ -13,11 +11,12 @@ $result = getAbout($db);
     Just nu bor han i Gamlestaden i Göteborg med sin flickvän. 
 </p>
 <p>Denna sida är skapad i samband med kursen htmlphp och kursmoment 10 som går på Blekinge Tekniska Högskola.</p>
-<img src="img/orig/boris.jpeg" alt="bild på utvecklaren">
+<p><a href="developer-info.php">Länk till dokumentationen</a></p>
+<img src="img/orig/Boris.jpeg" alt="bild på utvecklaren">
     </div>
 
-<h2>Om Nättraby Vägmuseum</h2>
 <aside class="about-aside">
+<h2>Om Nättraby Vägmuseum</h2>
     <?php foreach ($result as $row) {
         $title = $row['title'];
         $name = $row['name'];
@@ -29,6 +28,3 @@ $result = getAbout($db);
     }
     ?>
 </aside>
-
-
-<!-- </article> -->

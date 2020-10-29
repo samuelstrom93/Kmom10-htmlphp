@@ -1,9 +1,8 @@
     <section>
         <?php
-        // $db = connectToDatabase($dsn);
         $result = getAllFrom($db, "object");
 
-
+        echo "<h2 class='center'>Editera innehåll</h2>";
 
         if (isset($_GET['delete']) && isset($_GET['name'])) {
             $name = $_GET['name'];
@@ -31,11 +30,8 @@
                 </form>
             </div>
             <?php
-        }
-         
-        else {
-            ?>
-            <div class="flex-container">
+        } else {?>
+                <div class="flex-container">
                 <?php foreach ($result as $row) {
                     $imageText200 = htmlentities(mb_substr($row['image1Text'], 0, 200));
                     $name = htmlentities($row['name']);
@@ -47,10 +43,8 @@
                         <p><?= $imageText200 ?>...</p>
                         <a href="?page=edit&name=<?= $name ?>">Editera</a>
                         <a href="?page=edit&delete=<?= $id ?>&name=<?= $name ?>">Ta bort</a>
-                    </div>
-                <?php
+                    </div><?php
                 }
-        }
-        ?>
+        }?>
             </div>
     </section>

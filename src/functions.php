@@ -1,31 +1,5 @@
 <?php
 
-/**
- * Förstör en session
- *
- * @return void
- */
-function sessionDestroy()
-{
-    // Nollställer nedanstående variabel.
-    $_SESSION = [];
-
-    // Nollställer session och cookien.
-    if (ini_get("session.use_cookies")) {
-        $params = session_get_cookie_params();
-        setcookie(
-            session_name(),
-            '',
-            time() - 42000,
-            $params["path"],
-            $params["domain"],
-            $params["secure"],
-            $params["httponly"]
-        );
-    }
-    session_destroy();
-}
-
 function connectToDatabase($dsn)
 {
     try {
@@ -82,14 +56,6 @@ function getAllArticles($db)
     return $stmt->fetchAll(PDO::FETCH_BOTH);
 }
 
-function getMaps($db)
-{
-    $sql = "SELECT * FROM article WHERE name = 'kartor'";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_BOTH);
-}
-
 function getMapsByPage($startIndex, $endIndex, $gpsArray)
 {
     for ($i = $startIndex; $i < $endIndex; $i++) {
@@ -98,7 +64,7 @@ function getMapsByPage($startIndex, $endIndex, $gpsArray)
             <?php echo "<b>Koordinater:</b><br>" . $gpsArray[$i - 1]['gps']; ?>
             <a href="img/800/<?= $i < 10 ? sprintf("%02d", $i) : $i; ?>_karta.jpg"><img src="img/orig/<?= $i < 10 ? sprintf("%02d", $i) : $i; ?>_karta.jpg" alt="Kartbild"></a>
         </div><?php
-        }
+    }
 }
 
 function getGPS($db)
@@ -196,7 +162,7 @@ function printFormToInsertToDatabase($typeToAdd)
                     <p><label>image2Text<br><input type="text" name="image2Text"></label></p> 
                     EOD
                     :
-                    "<a href='?page=create&edit=$typeToAdd&secondPicture=true' class='center-btn' >Utöka formuläret för en till bild</a>";
+                    "<a href='?page=create&edit=$typeToAdd&secondPicture=true' class='center-btn' >Utöka formuläret</a>";
                 ?>
                 <p><input type="submit" name="add" value="Lägg till" id="submit-btn"></p>
             </fieldset>

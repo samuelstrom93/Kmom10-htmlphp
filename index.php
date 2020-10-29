@@ -22,7 +22,6 @@ foreach ($res as $row) {
             <p>$data
             </div>
             <p class="author">Författare: $author</p>
-            </article>
         EOD;
 }
 

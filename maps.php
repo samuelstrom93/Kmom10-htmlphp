@@ -21,10 +21,9 @@ include("incl/header.php");
             }
         }
         if (!(isset($_GET['page']))) {
-                ?><a href="maps.php?page=2" id="next-btn" class="material-icons">&#xe5c8;</a>
+            ?><a href="maps.php?page=2" id="next-btn" class="material-icons">&#xe5c8;</a>
                 <?php
-        }
-?>
+        }?>
 
 <?php $gpsArray = getGPS($db);
 
@@ -32,36 +31,27 @@ if (isset($_GET['page'])) {
 
     if ($_GET['page'] == 1) {
         ?><div class="maps-container"><?php
-        getMapsByPage(1, 7, $gpsArray);?>
+        getMapsByPage(1, 6, $gpsArray);?>
         </div><?php
     }
     if ($_GET['page'] == 2) {
         ?>
         <div class="maps-container"><?php
-        getMapsByPage(7, 12, $gpsArray);
-    ?></div><?php
+        getMapsByPage(6, 11, $gpsArray);
+        ?></div><?php
     }
 
     if ($_GET['page'] == 3) {
         ?><div class="maps-container"><?php
-        getMapsByPage(12, 15, $gpsArray);
-        ?>
+        getMapsByPage(11, 15, $gpsArray);?>
         </div>
-    <?php
+        <?php
     }
-}
-else
-{
+} else {
     ?><div class="maps-container"><?php
-    getMapsByPage(1, 7, $gpsArray);
-    ?>
+    getMapsByPage(1, 7, $gpsArray);?>
     </div>
     <?php
 }
 ?>
 <?php include("incl/footer.php"); ?>
-
-
-
-
-
