@@ -2,7 +2,7 @@
 
 Mitt första projekt i PHP. Webbplatsen är gjord för en fiktiv förening i HTML/CSS och PHP. Uppkopplad mot en SQLite-databas där jag hämtar data som sedan renderas på hemsidan. 
 
-## Startisda
+## Startsida
 <img width="964" src="https://github.com/samuelstrom93/Kmom10-htmlphp/blob/main/Resources/main-page.png">
 
 
